@@ -34,10 +34,14 @@ header nav ul {
     padding: 0;
     display: flex;
     gap: 10px; /* 设置链接之间的间隔 */
+    align-items: center; /* 确保链接在垂直方向上居中 */
+
 }
 
 header nav ul li {
-    display: inline;
+    display: flex;
+    margin: 0 10px; /* 给每个列表项设置左右间距 */
+
 }
 
 header nav ul li span {
@@ -80,7 +84,7 @@ p {
 /* 页脚 */
 footer {
     position: absolute;
-    bottom: 10px;
-    font-size: 14px;
+    bottom: 8px;
+    font-size: 10px;
     color: white;
 }
