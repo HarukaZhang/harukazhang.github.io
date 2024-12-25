@@ -39,13 +39,65 @@ body {
     background-attachment: fixed; /* 固定背景，滚动时背景不动 */
 }
 
+/* .site-index 显示在网页左上方 */
+.site-index {
+    position: fixed;   /* 固定定位 */
+    top: 20px;            /* 距离顶部 0px */
+    left: 20px;           /* 距离左边 0px */
+    z-index: 1000;     /* 确保该元素在所有其他元素之上 */
+    font-size: 15x;   /* 字体大小 */
+    font-family: 'Futura PT', sans-serif;
+    background-color: rgba(0, 0, 0, 0.6);  /* 半透明黑色背景 */
+    padding: 5px 10px; /* 内边距 */
+    letter-spacing: 5px;  /* 增加字距，调整此值来控制字母之间的间隔 */
+    border-top: 0.1px solid yellowgreen; /* 上边框 */
+    border-left: 0.1px solid yellowgreen; /* 左边框 */
+    border-bottom: 0.1px solid yellowgreen; /* 下边框 */
+    border-right: none; /* 右边框去掉 */    
+    height: 30px;      /* 高度设置为 30px */
+}
+
+/* 链接样式 */
+.site-index a {
+    color: yellow;         /* 白色文字 */
+    text-decoration: none;/* 去掉下划线 */
+    font-weight: normal;  /* 设置文字为正常粗细 */
+    transition: color 0.3s ease; /* 悬停效果 */
+    padding: 5px 10px;    /* 给链接添加内边距 */
+}
+
+/* 悬停效果 */
+.site-index a:hover {
+    background-color: yellowgreen; /* 悬停时背景色为黄色 */
+    color: black;             /* 悬停时字体颜色为黑色 */
+}
+
+.language-link {
+    font-size: 0.8em; /* 设置字体小一点 */
+    font-style: italic; /* 设置斜体 */
+    color: yellowgreen !important; /* 强制设置字体颜色 */
+}
+
+.site-index .separator {
+    font-size: 0.6em; /* 设置分隔符字体为 0.6em，变小 */
+    color: yellowgreen; /* 设置分隔符颜色为白色 */
+    margin: 0 1px; /* 设置分隔符左右间距 */
+}
+
 /* 页面头部（导航） */
 header {
-    position: absolute;
+    position: fixed;
     top: 20px; /* 距离顶部 20px */
     right: 20px; /* 距离右边 20px */
-    font-size: 24px;
+    font-size: 15px;
     font-weight: normal;
+    height: 40px;      /* 高度设置为 30px */
+    background-color: black; /* 背景颜色为黑色 */
+    border-top: 0.1px solid yellowgreen; /* 上边框 */
+    border-right: 0.1px solid yellowgreen; /* 左边框 */
+    border-bottom: 0.1px solid yellowgreen; /* 下边框 */
+    border-left: none; /* 右边框去掉 */    
+    letter-spacing: 3px;  /* 增加字距，调整此值来控制字母之间的间隔 */
 }
 
 header nav ul {
@@ -60,12 +112,12 @@ header nav ul {
 
 header nav ul li a {
     text-decoration: none; /* 去掉链接下划线 */
-    color: white;          /* 初始字体颜色 */
+    color: yellowgreen;          /* 初始字体颜色 */
     padding: 5px 10px;     /* 给链接添加内边距 */
 }
 
 header nav ul li a:hover {
-    background-color: yellow; /* 悬停时背景色为黄色 */
+    background-color: yellowgreen; /* 悬停时背景色为黄色 */
     color: black;             /* 悬停时字体颜色为绿色 */
 }
 
@@ -76,12 +128,12 @@ header nav ul li {
 }
 
 header nav ul li span {
-    color: white;
+    color: yellowgreen;
     font-weight: normal;
 }
 
 header a {
-    color: white;
+    color: yellowgreen;
     text-decoration: none; /* 去除下划线 */
     text-transform: uppercase; /* 将文字转为大写 */
     transition: color 0.3s ease;
@@ -94,7 +146,7 @@ header a:hover {
 /* 中央内容区域 */
 main {
     text-align: center;
-    color: white; /* 设置字体颜色为白色 */
+    color: yellowgreen; /* 设置字体颜色为白色 */
     padding: 20px;
 }
 
@@ -104,9 +156,9 @@ h1 {
     margin: 0;
     font-family: 'Futura PT', sans-serif;
     font-weight: normal;
-    line-height: 2; /* 增大行距 */
-    white-space: pre-wrap;  /* 确保空格被正常显示并换行 */
+    line-height: 5; /* 增大行距 */
     padding-bottom: 10px; /* 可选，增加底部间距 */
+    letter-spacing: 27px;  /* 增加字距，调整此值来控制字母之间的间隔 */
 }
 
 
@@ -122,7 +174,7 @@ footer {
     bottom: 8px;
     right: 10px;
     font-size: 8px;
-    color: white;
+    color: yellow;
 }
 /* About 页面布局样式 */
 .about-container {
@@ -153,7 +205,7 @@ footer {
     padding: 20px;
     text-align: left;
     font-size: 1em;
-    color: white; /* 设置文字颜色为白色 */
+    color: yellowgreen; /* 设置文字颜色为白色 */
     background-color: black;  /* 不透明灰色背景 */
     padding: 20px;  /* 内边距 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
