@@ -13,7 +13,7 @@ body {
 
 /* 背景图片样式 */
 body {
-    background-image: url('background-image.jpg'); /* 背景图片文件名 */
+    background-image: url('background-image1.jpg'); /* 背景图片文件名 */
     background-size: cover; /* 使图片覆盖整个页面 */
     background-position: center; /* 居中显示图片 */
     background-attachment: fixed; /* 固定背景，滚动时背景不动 */
