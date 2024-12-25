@@ -28,9 +28,22 @@ header {
     font-weight: bold;
 }
 
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* 设置链接之间的间隔 */
+}
+
+header nav ul li {
+    display: inline;
+}
+
 header a {
     color: white;
     text-decoration: none; /* 去除下划线 */
+    text-transform: uppercase; /* 将文字转为大写 */
     transition: color 0.3s ease;
 }
 
