@@ -199,25 +199,34 @@
 
         // 监听键盘事件
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowUp' || event.key === 'w') direction = 'UP';
-            if (event.key === 'ArrowDown' || event.key === 's') direction = 'DOWN';
-            if (event.key === 'ArrowLeft' || event.key === 'a') direction = 'LEFT';
-            if (event.key === 'ArrowRight' || event.key === 'd') direction = 'RIGHT';
+    if (event.key === 'ArrowUp' || event.key === 'w') {
+        if (direction !== 'DOWN') direction = 'UP';  // 防止向下后立即向上
+    }
+    if (event.key === 'ArrowDown' || event.key === 's') {
+        if (direction !== 'UP') direction = 'DOWN';  // 防止向上后立即向下
+    }
+    if (event.key === 'ArrowLeft' || event.key === 'a') {
+        if (direction !== 'RIGHT') direction = 'LEFT';  // 防止向右后立即向左
+    }
+    if (event.key === 'ArrowRight' || event.key === 'd') {
+        if (direction !== 'LEFT') direction = 'RIGHT';  // 防止向左后立即向右
+    }
 
-            // 按空格键暂停或继续游戏
-            if (event.key === ' ') {
-                isPaused = !isPaused;
-                if (!isPaused) {
-                    startGame();  // 重新开始游戏
-                }
-            }
-        });
+    // 按空格键暂停或继续游戏
+    if (event.key === ' ') {
+        isPaused = !isPaused;
+        if (!isPaused) {
+            startGame();  // 重新开始游戏
+        }
+    }
+});
+
 
         // 启动游戏
         function startGame() {
             // 减慢游戏速度：增加时间间隔
             if (!gameInterval) {
-                gameInterval = setInterval(moveSnake, 150);  // 每 150ms 更新一次，略微加快蛇的速度
+                gameInterval = setInterval(moveSnake, 100);  // 每 150ms 更新一次，略微加快蛇的速度
             }
         }
 
