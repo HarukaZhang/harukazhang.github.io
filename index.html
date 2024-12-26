@@ -5,16 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .site-index {
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            z-index: 2;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+        header {
+            z-index: 2;
+        }
+        main {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            color: yellowgreen;  /* 修改标题颜色 */
+        }
+        p {
+            font-size: 20px;
+            color: #111312;
+        }
+
+        /* 操作引导和分数样式 */
+        .game-info {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            color: #5c5656;
+            font-size: 10px;
+            font-family: 'Futura PT', sans-serif;  /* 修改字体 */
+            line-height: 0.8;  /* 调整行距 */
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
+
     <div class="site-index">
         <a href="index.html"> · ZHANG JUNYAO · </a>
         <a href="index.html" class="language-link"> EN </a> <!-- 英文链接 -->
         <span class="separator">/</span> <!-- 分隔符 -->
         <a href="indexcn.html" class="language-link"> 中文 </a> <!-- 中文链接 -->
     </div>
-    
-    <!-- Header with navigation links -->
+
     <header>
         <nav>
             <ul>
@@ -33,14 +90,138 @@
         </nav>
     </header>
 
-    <!-- Main content centered -->
     <main>
         <h1>Z H A N G J u n Y a o</h1>
-        <p>personal site</p>
+        <p>personal site WIP</p>
     </main>
 
     <footer>
         <p> ヾ(•ω•`)o👻👻👻👻👻👻👻👻</p>
     </footer>
+
+    <!-- 游戏画布 -->
+    <canvas id="snakeCanvas"></canvas>
+
+    <!-- 游戏信息（操作引导、分数） -->
+    <div class="game-info">
+        <p>Best Score: <span id="bestScore">0</span></p>
+        <p>Score: <span id="score">0</span></p>
+        <p>Use Arrow Keys or WASD to control the snake</p>
+    </div>
+
+    <script>
+        // 获取画布
+        const snakeCanvas = document.getElementById('snakeCanvas');
+        const snakeCtx = snakeCanvas.getContext('2d');
+
+        // 设置画布为整个页面大小
+        snakeCanvas.width = window.innerWidth;
+        snakeCanvas.height = window.innerHeight;
+
+        // 蛇的设置
+        const snakeSize = 15;  // 蛇和食物的大小缩小
+        let snake = [{ x: 5, y: 5 }];
+        let food = { x: 10, y: 10 };
+        let direction = 'RIGHT';
+        let gameInterval;
+        let score = 0;
+        let bestScore = localStorage.getItem('bestScore') || 0;
+        let isPaused = false;  // 用于控制游戏暂停/继续
+
+        // 绘制蛇
+        function drawSnake() {
+            snakeCtx.clearRect(0, 0, snakeCanvas.width, snakeCanvas.height);
+            for (let i = 0; i < snake.length; i++) {
+                snakeCtx.fillStyle = (i === 0) ? 'purple' : 'yellowgreen';
+                snakeCtx.fillRect(snake[i].x * snakeSize, snake[i].y * snakeSize, snakeSize, snakeSize);
+            }
+        }
+
+        // 绘制食物
+        function drawFood() {
+            snakeCtx.fillStyle = 'red';
+            snakeCtx.fillRect(food.x * snakeSize, food.y * snakeSize, snakeSize, snakeSize);
+        }
+
+        // 移动蛇
+        function moveSnake() {
+            if (isPaused) return;  // 如果游戏暂停，不进行移动
+
+            const head = { ...snake[0] };
+
+            if (direction === 'UP') head.y -= 1;
+            if (direction === 'DOWN') head.y += 1;
+            if (direction === 'LEFT') head.x -= 1;
+            if (direction === 'RIGHT') head.x += 1;
+
+            snake.unshift(head);
+
+            // 检查蛇是否吃到食物
+            if (head.x === food.x && head.y === food.y) {
+                generateFood();
+                score++;
+                if (score > bestScore) {
+                    bestScore = score;
+                    localStorage.setItem('bestScore', bestScore);  // 保存最好成绩
+                }
+            } else {
+                snake.pop();
+            }
+
+            // 检查蛇是否撞墙或自己
+            if (head.x < 0 || head.x * snakeSize >= snakeCanvas.width || head.y < 0 || head.y * snakeSize >= snakeCanvas.height || isCollisionWithSelf()) {
+                clearInterval(gameInterval);
+                alert('Game Over!');
+            }
+
+            drawSnake();
+            drawFood();
+
+            // 更新分数和最佳分数
+            document.getElementById('score').textContent = score;
+            document.getElementById('bestScore').textContent = bestScore;
+        }
+
+        // 检查是否撞到自己
+        function isCollisionWithSelf() {
+            const head = snake[0];
+            for (let i = 1; i < snake.length; i++) {
+                if (snake[i].x === head.x && snake[i].y === head.y) return true;
+            }
+            return false;
+        }
+
+        // 随机生成食物
+        function generateFood() {
+            food.x = Math.floor(Math.random() * (snakeCanvas.width / snakeSize));
+            food.y = Math.floor(Math.random() * (snakeCanvas.height / snakeSize));
+        }
+
+        // 监听键盘事件
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowUp' || event.key === 'w') direction = 'UP';
+            if (event.key === 'ArrowDown' || event.key === 's') direction = 'DOWN';
+            if (event.key === 'ArrowLeft' || event.key === 'a') direction = 'LEFT';
+            if (event.key === 'ArrowRight' || event.key === 'd') direction = 'RIGHT';
+
+            // 按空格键暂停或继续游戏
+            if (event.key === ' ') {
+                isPaused = !isPaused;
+                if (!isPaused) {
+                    startGame();  // 重新开始游戏
+                }
+            }
+        });
+
+        // 启动游戏
+        function startGame() {
+            // 减慢游戏速度：增加时间间隔
+            if (!gameInterval) {
+                gameInterval = setInterval(moveSnake, 150);  // 每 150ms 更新一次，略微加快蛇的速度
+            }
+        }
+
+        startGame();
+    </script>
 </body>
 </html>

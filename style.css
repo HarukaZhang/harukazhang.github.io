@@ -33,10 +33,11 @@ body {
 
 /* 背景图片样式 */
 body {
-    background-image: url('images/background-image.jpg'); /* 背景图片文件名 */
-    background-size: cover; /* 使图片覆盖整个页面 */
-    background-position: center; /* 居中显示图片 */
-    background-attachment: fixed; /* 固定背景，滚动时背景不动 */
+    background-color: greysmoke; /* 背景图片文件名 */
+/*    background-image: url('images/background-image.jpg'); /* 背景图片文件名 */
+/*    background-size: cover; /* 使图片覆盖整个页面 */
+/*    background-position: center; /* 居中显示图片 */
+/*    background-attachment: fixed; /* 固定背景，滚动时背景不动 */
 }
 
 /* .site-index 显示在网页左上方 */
@@ -47,19 +48,19 @@ body {
     z-index: 1000;     /* 确保该元素在所有其他元素之上 */
     font-size: 15x;   /* 字体大小 */
     font-family: 'Futura PT', sans-serif;
-    background-color: rgba(0, 0, 0, 0.6);  /* 半透明黑色背景 */
+    background-color: greysmoke;  /* 半透明黑色背景 */
     padding: 5px 10px; /* 内边距 */
     letter-spacing: 5px;  /* 增加字距，调整此值来控制字母之间的间隔 */
-    border-top: 0.1px solid yellowgreen; /* 上边框 */
-    border-left: 0.1px solid yellowgreen; /* 左边框 */
-    border-bottom: 0.1px solid yellowgreen; /* 下边框 */
+    border-top: 0.1px solid rgb(42, 153, 42); /* 上边框 */
+    border-left: 0.1px solid rgb(42, 153, 42); /* 左边框 */
+    border-bottom: 0.1px solid rgb(42, 153, 42); /* 下边框 */
     border-right: none; /* 右边框去掉 */    
     height: 30px;      /* 高度设置为 30px */
 }
 
 /* 链接样式 */
 .site-index a {
-    color: yellow;         /* 白色文字 */
+    color: rgb(64, 28, 226);         /* 白色文字 */
     text-decoration: none;/* 去掉下划线 */
     font-weight: normal;  /* 设置文字为正常粗细 */
     transition: color 0.3s ease; /* 悬停效果 */
@@ -68,19 +69,19 @@ body {
 
 /* 悬停效果 */
 .site-index a:hover {
-    background-color: yellowgreen; /* 悬停时背景色为黄色 */
-    color: black;             /* 悬停时字体颜色为黑色 */
+    background-color: rgb(42, 153, 42); /* 悬停时背景色为黄色 */
+    color: greysmoke;             /* 悬停时字体颜色为黑色 */
 }
 
 .language-link {
     font-size: 0.8em; /* 设置字体小一点 */
     font-style: italic; /* 设置斜体 */
-    color: yellowgreen !important; /* 强制设置字体颜色 */
+    color: rgb(42, 153, 42) !important; /* 强制设置字体颜色 */
 }
 
 .site-index .separator {
     font-size: 0.6em; /* 设置分隔符字体为 0.6em，变小 */
-    color: yellowgreen; /* 设置分隔符颜色为白色 */
+    color: rgb(42, 153, 42); /* 设置分隔符颜色为白色 */
     margin: 0 1px; /* 设置分隔符左右间距 */
 }
 
@@ -92,10 +93,10 @@ header {
     font-size: 15px;
     font-weight: normal;
     height: 40px;      /* 高度设置为 30px */
-    background-color: black; /* 背景颜色为黑色 */
-    border-top: 0.1px solid yellowgreen; /* 上边框 */
-    border-right: 0.1px solid yellowgreen; /* 左边框 */
-    border-bottom: 0.1px solid yellowgreen; /* 下边框 */
+    background-color: greysmoke; /* 背景颜色为黑色 */
+    border-top: 0.1px solid rgb(42, 153, 42); /* 上边框 */
+    border-right: 0.1px solid rgb(42, 153, 42); /* 左边框 */
+    border-bottom: 0.1px solid rgb(42, 153, 42); /* 下边框 */
     border-left: none; /* 右边框去掉 */    
     letter-spacing: 3px;  /* 增加字距，调整此值来控制字母之间的间隔 */
 }
@@ -112,13 +113,13 @@ header nav ul {
 
 header nav ul li a {
     text-decoration: none; /* 去掉链接下划线 */
-    color: yellowgreen;          /* 初始字体颜色 */
+    color: rgb(42, 153, 42);          /* 初始字体颜色 */
     padding: 5px 10px;     /* 给链接添加内边距 */
 }
 
 header nav ul li a:hover {
-    background-color: yellowgreen; /* 悬停时背景色为黄色 */
-    color: black;             /* 悬停时字体颜色为绿色 */
+    background-color: rgb(42, 153, 42); /* 悬停时背景色为黄色 */
+    color: greysmoke;             /* 悬停时字体颜色为绿色 */
 }
 
 header nav ul li {
@@ -128,12 +129,12 @@ header nav ul li {
 }
 
 header nav ul li span {
-    color: yellowgreen;
+    color: rgb(42, 153, 42);
     font-weight: normal;
 }
 
 header a {
-    color: yellowgreen;
+    color: rgb(42, 153, 42);
     text-decoration: none; /* 去除下划线 */
     text-transform: uppercase; /* 将文字转为大写 */
     transition: color 0.3s ease;
@@ -146,7 +147,7 @@ header a:hover {
 /* 中央内容区域 */
 main {
     text-align: center;
-    color: yellowgreen; /* 设置字体颜色为白色 */
+    color: rgb(42, 153, 42); /* 设置字体颜色为白色 */
     padding: 20px;
 }
 
@@ -200,8 +201,8 @@ p {
     padding: 80px 20px;
     text-align: left;
     font-size: 1em;
-    color: white; /* 设置文字颜色为白色 */
-    background-color: black;  /* 不透明灰色背景 */
+    color: grey; /* 设置文字颜色为白色 */
+    background-color: greysmoke;  /* 不透明灰色背景 */
     padding: 20px;  /* 内边距 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
     margin-left: 450px;  /* 左侧间距 */
@@ -219,12 +220,12 @@ p {
 }
 
 .about-content::-webkit-scrollbar-thumb {
-    background-color: yellowgreen; /* 滚动条颜色 */
+    background-color: rgb(42, 153, 42); /* 滚动条颜色 */
     border-radius: 6px; /* 圆角 */
 }
 
 .about-content::-webkit-scrollbar-track {
-    background-color: #222; /* 滚动条轨道颜色 */
+    background-color: #e6e5e5; /* 滚动条轨道颜色 */
     border-radius: 6px; /* 圆角 */
 }
 
@@ -249,34 +250,36 @@ p {
 .video-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
+    margin-left: 180px; /* 向左移动整体内容，调整该值控制偏移量 */
+    margin-top: 1180px; /* 向左移动整体内容，调整该值控制偏移量 */
 }
 
 .video-title {
-    text-align: center;
+    text-align: left;
     font-size: 2em;
-    color: #333;
-    margin-bottom: 40px;
+    color: rgb(42, 153, 42);
+    margin-bottom: 5px;
 }
 
 /* 视频列表样式 */
 .video-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
 }
 
 /* 每个视频项目的容器 */
 .video-item {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: start;
     gap: 20px; /* 视频与文字之间的间隔 */
 }
 
 /* 视频容器样式 */
 .video-container {
-    flex: 0 0 60%; /* 视频容器占据 60% 宽度 */
+    flex: 0 0 200%; /* 视频容器占据 60% 宽度 */
     position: relative;
 }
 
@@ -289,11 +292,11 @@ p {
 
 /* 视频文字介绍容器 */
 .video-caption {
-    flex: 1;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    font-size: 1em;
+    flex: 0 0 60%;
+    background-color: greysmoke;
+    color: grey;
+    padding: 40px;
+    font-size: 0.5em;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -304,7 +307,7 @@ footer {
     bottom: 8px;
     right: 10px;
     font-size: 8px;
-    color: yellow;
+    color: orange;
 }
 
 @media screen and (max-width: 768px) {
