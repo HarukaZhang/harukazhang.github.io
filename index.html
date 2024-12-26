@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
+    <title>Zhang Junyao's personal site</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -24,7 +24,7 @@
         .site-index {
             text-align: center;
             padding: 10px;
-            font-size: 16px;
+            font-size: 15px;
             z-index: 2;
         }
         footer {
@@ -47,19 +47,20 @@
         }
         p {
             font-size: 14px;
-            color: #111312;
+            color: rgb(83, 57, 177);
         }
 
         /* 操作引导和分数样式 */
         .game-info {
             position: absolute;
-            top: 80px;
-            left: 20px;
-            color: #5c5656;
+            bottom: 60px;
+            right: 30px;
+            color: purple;
             font-size: 10px;
             font-family: 'Futura PT', sans-serif;  /* 修改字体 */
             line-height: 0.8;  /* 调整行距 */
             z-index: 2;
+            text-align: right;
         }
     </style>
 </head>
@@ -96,7 +97,7 @@
     </main>
 
     <footer>
-        <p> ヾ(•ω•`)o👻👻👻👻👻👻👻👻</p>
+        <p> ヾ(•ω•`)o👻👻👻👻&copy; 2024 - Junyao ZHANG</p>
     </footer>
 
     <!-- 游戏画布 -->
@@ -171,7 +172,7 @@
             // 检查蛇是否撞墙或自己
             if (head.x < 0 || head.x * snakeSize >= snakeCanvas.width || head.y < 0 || head.y * snakeSize >= snakeCanvas.height || isCollisionWithSelf()) {
                 clearInterval(gameInterval);
-                alert('欢迎你来我的主页!ヾ(•ω•`)o');
+                alert('欢迎来我的主页!ヾ(•ω•`)o');
             }
 
             drawSnake();
