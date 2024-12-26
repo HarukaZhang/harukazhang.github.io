@@ -10,6 +10,7 @@ body {
     flex-direction: column;
     align-items: center; /* 居中内容 */
     justify-content: center; /* 居中内容 */
+    transform-origin: center; /* 设置缩放中心 */
 }
 
 @font-face {
@@ -22,7 +23,6 @@ body {
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: 'Futura PT';
     src: url('fonts/FuturaCyrillicBold.ttf') format('truetype'),
@@ -41,7 +41,7 @@ body {
 
 /* .site-index 显示在网页左上方 */
 .site-index {
-    position: fixed;   /* 固定定位 */
+    position: absolute;   /* 固定定位 */
     top: 20px;            /* 距离顶部 0px */
     left: 20px;           /* 距离左边 0px */
     z-index: 1000;     /* 确保该元素在所有其他元素之上 */
@@ -86,7 +86,7 @@ body {
 
 /* 页面头部（导航） */
 header {
-    position: fixed;
+    position: absolute;
     top: 20px; /* 距离顶部 20px */
     right: 20px; /* 距离右边 20px */
     font-size: 15px;
@@ -168,14 +168,7 @@ p {
     margin: 10px 0;
 }
 
-/* 页脚 */
-footer {
-    position: absolute;
-    bottom: 8px;
-    right: 10px;
-    font-size: 8px;
-    color: yellow;
-}
+
 /* About 页面布局样式 */
 .about-container {
     display: flex;
@@ -252,6 +245,68 @@ footer {
     line-height: 0.1;
 }
 
+
+.video-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.video-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* 视频列表样式 */
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 每个视频项目的容器 */
+.video-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px; /* 视频与文字之间的间隔 */
+}
+
+/* 视频容器样式 */
+.video-container {
+    flex: 0 0 60%; /* 视频容器占据 60% 宽度 */
+    position: relative;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9; /* 保证视频比例为 16:9 */
+    border: none;
+}
+
+/* 视频文字介绍容器 */
+.video-caption {
+    flex: 1;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 页脚 */
+footer {
+    position: fixed;
+    bottom: 8px;
+    right: 10px;
+    font-size: 8px;
+    color: yellow;
+}
+
 @media screen and (max-width: 768px) {
     .about-container {
         flex-direction: column; /* 改为垂直排列 */
@@ -265,6 +320,17 @@ footer {
 
     .about-image img {
         max-width: 100%;
+    }
+    .video-item {
+        flex-direction: column; /* 小屏幕上，视频和文字堆叠 */
+        gap: 10px;
+    }
+    .video-container {
+        width: 100%;
+        height: auto;
+    }
+    .video-caption {
+        width: 100%;
     }
 }
 
