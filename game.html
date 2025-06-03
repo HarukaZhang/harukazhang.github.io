@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>game · Junyao ZHANG</title>
+  <title>作品集 · 刺客信条·影 · 张俊瑶</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Noto Sans SC for consistent styling -->
+  <!-- Noto Sans SC 用于中英文混排 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-    body {
+    /* --------------------------
+       全局基础 
+    -------------------------- */
+    * {
       margin: 0;
       padding: 0;
-      background-color: #0c0c0c;
-      color: yellowgreen;
+      box-sizing: border-box;
+    }
+    body {
       font-family: 'Noto Sans SC', sans-serif;
-      overflow: hidden;
+      color: #e0ffe0;
+      background-color: #0c0c0c;
+      overflow: hidden; /* 只让右侧滚动区滚动 */
+    }
+    a {
+      text-decoration: none;
+      color: #bfff59;
+    }
+    a:hover {
+      text-shadow: 0 0 4px rgba(191,255,89,0.7);
     }
 
-    /* Language toggle at top-left */
+        /* Language toggle at top-left */
     .site-index {
       position: absolute;
       top: 10px;
@@ -38,8 +51,7 @@
       color: gray;
       cursor: default;
     }
-
-    /* Navigation at top-right */
+ /* Navigation at top-right */
     header {
       position: absolute;
       top: 10px;
@@ -65,119 +77,156 @@
     nav ul li a:hover {
       color: #acf248;
     }
+    /* --------------------------
+       左侧固定栏 
+    -------------------------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;            /* 左侧宽度占屏幕 30% */
+  height: 100vh;         /* 始终撑满整个视口高度 */
+  background: rgba(0,0,0,0.9);
+  border-right: 1px solid rgba(100,100,100,0.3);
 
-    /* Main content area */
-    main {
-      position: relative;
-      z-index: 1;
-      padding-top: 80px;
-      text-align: center;
-    }
+  /* 新增：flex 布局，将内容垂直分布 */
+  display: flex;
+  flex-direction: column;
+}
 
-    /* game container: left description, right video */
-    .game-container {
-      display: flex;
-      width: 100%;
-      height: auto;
-      background: #0c0c0c;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    /* Left column: video description */
-    .game-image {
-      flex: 0 0 33.3333%;
-      max-width: 33.3333%;
-      margin: 0;
-      padding-right: 20px;
-      box-sizing: border-box;
-      text-align: left;
-    }
-    .game-image h2 {
-      margin-top: 0;
-      font-size: 24px;
-      color: yellowgreen;
-    }
-    .game-image p {
-      margin: 12px 0;
-      line-height: 1.4;
-      color: #e0ffe0;
-      font-size: 14px;
-    }
-    .game-image p em {
-      color: #bddf7b;
-    }
-    .game-image .separator-line {
-      text-align: center;
-      color: gray;
-      margin: 10px 0;
-    }
+ /* --------------------------
+   将“项目标题+职位+分割线+目录”都放这里面 
+   让它垂直居中 
+-------------------------- */
+.sidebar-content {
+  flex: 1;                    /* 占据 .sidebar 除底部版权外的所有可用空间 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* 垂直居中这部分内容 */
+    padding-bottom: 80px;         /* 内边距可根据实际需求微调 */
+  padding-left: 180px;         /* 内边距可根据实际需求微调 */
+  padding-right: 20px;
+}
 
-    /* Right column: embedded video */
-    .game-content {
-      flex: 0 0 66.6667%;
-      max-width: 66.6667%;
-      padding-left: 0px;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-    .game-content video {
-      width: 100%;
-      max-width: 1400px;
-      height: auto;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      border-radius: 4px;
-    }
+/* 项目标题 */
+.sidebar .project-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #acf248;
+  text-shadow: 0 0 6px rgba(172,242,72,0.6);
+  margin-bottom: 8px;
+}
 
-    /* Footer at bottom-right */
-    footer {
+/* 职位信息 */
+.sidebar .project-role {
+  font-size: 16px;
+  color: #bddf7b;
+  margin-bottom: 16px;
+}
+
+/* 分割线 */
+.sidebar .separator-line {
+  height: 1px;
+  background: rgba(100,100,100,0.5);
+  margin: 16px 0;
+}
+
+/* 章节目录 */
+.sidebar .section-list {
+  overflow-y: auto;        /* 如果太多，允许滚动 */
+}
+.sidebar .section-list h3 {
+  font-size: 20px;
+  color: #acf248;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.9);
+  padding-bottom: 8px;
+}
+.sidebar .section-list ul {
+  list-style: none;
+}
+.sidebar .section-list li {
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.sidebar .section-list li.active > a {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+/* 底部版权：保持在 sidebar 底部 */
+.sidebar .footer {
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+  padding: 12px 0;
+}
+
+    /* --------------------------
+       右侧滚动区 
+    -------------------------- */
+    .content-wrapper {
       position: absolute;
-      bottom: 10px;
-      right: 20px;
-      font-size: 12px;
-      color: gray;
-      font-family: 'Noto Sans SC', sans-serif;
-      text-align: right;
-      z-index: 2;
+      top: 0;
+      left: 20%;                /* 紧挨左侧 30% 宽度 */
+      width: 80%;
+      height: 100vh;
+      overflow-y: scroll;       /* 仅允许右侧滚动 */
+      scroll-snap-type: y mandatory; /* 强制“节”级滚动对齐 */
     }
+    .video-section {
+      scroll-snap-align: start;    /* 每一节滚动到顶部时对齐 */
+      width: 100%;
+      height: calc(100vh);         /* 每节占满一个视口高度 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+    .video-section:nth-child(odd) {
+      background-color: #111;      /* 交替深浅背景，增强层次 */
+    }
+    .video-section:nth-child(even) {
+      background-color: #0c0c0c;
+    }
+.video-section .section-title {
+  /* 与视频同样的最大宽度 */
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 16px;  /* 水平居中，底部留 16px 间距 */
+  text-align: left;     /* 文本左对齐 */
+  color: #acf248;
+  font-size: 24px;
+  text-shadow: 0 0 4px rgba(172,242,72,0.7);
+}
 
-    /* Mobile adjustments */
-    @media (max-width: 767px) {
-      body {
-        overflow-y: auto;
-      }
-      .game-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .game-image {
-        flex: 0 0 90%;
-        max-width: 90%;
-        margin-bottom: 20px;
-        padding-right: 0;
-        text-align: center;
-      }
-      .game-content {
-        flex: 0 0 90%;
-        max-width: 90%;
-        padding-left: 0;
-      }
-      .game-content video {
-        width: 100%;
-      }
-      footer {
-        bottom: 50px;
-        right: 10px;
-        font-size: 8px;
-      }
-    }
+.video-section video {
+  width: 100%;
+  max-width: 1400px;   /* 视频最大宽度 */
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.5);
+}
+
+.video-section .caption {
+  width: 100%;
+  max-width: 1400px;   /* 与视频保持一致 */
+  margin-top: 12px;
+  text-align: left;
+  color: #e0ffe0;
+  font-size: 10px;
+  line-height: 1.6;
+}
   </style>
 </head>
+
 <body>
 
-  <!-- Language toggle -->
+    <!-- Language toggle -->
   <div class="site-index">
     <a href="index-en.html" class="language-link">EN</a>
     <span class="separator">/</span>
@@ -199,27 +248,175 @@
     </nav>
   </header>
 
-  <!-- Main game section -->
-  <main>
-    <div class="game-container">
-      <!-- Left: text description -->
-      <div class="game-image">
-        <h2>刺客信条·影</h2>
-        <p>过场动画设计   育碧成都</p>
-        <div class="separator-line">———————</div>
-        <p>宇喜多直家（贵族）<br><em> ·连歌会 贵族登场/击退浪人<br> ·春与秋 贵族之死</em></p>
-        <p>别所治正（牛）<br><em>·断角 攻打计划/牛之死</em></p>
-        <p>弥助<br><em> · 银后登场/卡罗现身/银后约定</em></p>
-        <p>小四郎<br><em>· 恋爱场景</em></p>
+  <!-- 左侧固定栏 -->
+  <aside class="sidebar">
+  <!-- ① 新增一个 .sidebar-content 容器 -->
+  <div class="sidebar-content">
+    <div class="project-title">刺客信条·影</div>
+    <div class="project-role">过场动画设计</div>
+    <div class="separator-line"></div>
 
-      </div>
-      <!-- Right: embedded video -->
-      <div class="game-content">
-        <video src="images/video/GOL_120_Q005_S025_NAO_RengaStart.mp4" controls></video>
-      </div>
+    <div class="section-list">
+      <h3>索引</h3>
+      <ul>
+        <li class="active"><a href="#sect1">1. 贵族登场</a></li>
+        <li><a href="#sect2">2. 击退浪人</a></li>
+        <li><a href="#sect3">3. 贵族之死</a></li>
+        <li><a href="#sect4">4. 攻打计划</a></li>
+        <li><a href="#sect5">5. 牛之死</a></li>
+        <li><a href="#sect6">6. 银后登场</a></li>
+        <li><a href="#sect7">7. 卡罗现身</a></li>
+        <li><a href="#sect8">8. 银后约定</a></li>
+        <li><a href="#sect9">9. 恋爱场景</a></li>
+      </ul>
     </div>
-  </main>
+  </div>
 
+  </aside>
 
+  <!-- 右侧可滚动内容区 -->
+  <div class="content-wrapper">
+    <!-- SECTION 1 -->
+    <section id="sect1" class="video-section">
+      <div class="section-title">贵族登场</div>
+      <video controls preload="metadata" poster="images/posters/sect1.jpg">
+        <source src="videos/1_noblesEntrance.mp4" type="video/mp4" />
+      </video>
+      <div class="caption">
+        <p>角色：宇喜多直家（贵族）</p>
+        <p>这一幕展示了“连歌会”中的贵族初次登场，透过镜头细节刻画社会秩序与人物气质。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sect2" class="video-section">
+      <div class="section-title">击退浪人</div>
+      <video controls preload="metadata" poster="images/posters/sect2.jpg">
+        <source src="videos/2_repelRonin.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：宇喜多直家（贵族）</p>
+        <p>在贵族领地遭遇浪人入侵之时，描述主人公如何指挥亲卫成功击退对方的紧张场面。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sect3" class="video-section">
+      <div class="section-title">贵族之死</div>
+      <video controls preload="metadata" poster="images/posters/sect3.jpg">
+        <source src="videos/3_noblesFall.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：宇喜多直家（贵族）</p>
+        <p>“春与秋”篇章中的关键时刻，刻画贵族在风雨骤变中命运的终点。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sect4" class="video-section">
+      <div class="section-title">攻打计划</div>
+      <video controls preload="metadata" poster="images/posters/sect4.jpg">
+        <source src="videos/4_attackPlan.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：别所治正（牛）</p>
+        <p>叙述别所治正在幕后策划如何通过“断角”组织，向对手展开果敢的攻打行动。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sect5" class="video-section">
+      <div class="section-title">牛之死</div>
+      <video controls preload="metadata" poster="images/posters/sect5.jpg">
+        <source src="videos/5_bullsDeath.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：别所治正（牛）</p>
+        <p>展现别所治正最终在“断角”行动中身处危局，死而不屈的悲壮瞬间。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sect6" class="video-section">
+      <div class="section-title">银后登场</div>
+      <video controls preload="metadata" poster="images/posters/sect6.jpg">
+        <source src="videos/6_silverQueenEntrance.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：弥助</p>
+        <p>弥助作为银后家族的代表首次亮相，镜头语言注重她的神秘气场与穿着细节。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="sect7" class="video-section">
+      <div class="section-title">卡罗现身</div>
+      <video controls preload="metadata" poster="images/posters/sect7.jpg">
+        <source src="videos/7_karoAppearance.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：弥助</p>
+        <p>在银后面前，卡罗的突然现身带来关键线索，冲突与转折一触即发。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="sect8" class="video-section">
+      <div class="section-title">银后约定</div>
+      <video controls preload="metadata" poster="images/posters/sect8.jpg">
+        <source src="videos/8_silverQueenPromise.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：弥助</p>
+        <p>银后与弥助达成关键约定，揭示双方在背后更深层的利益纠葛。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section id="sect9" class="video-section">
+      <div class="section-title">恋爱场景</div>
+      <video controls preload="metadata" poster="images/posters/sect9.jpg">
+        <source src="videos/9_loveScene.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+      <div class="caption">
+        <p>角色：小四郎</p>
+        <p>最后的小四郎篇章，用温暖的镜头语境，展现角色对爱与归属感的追寻。</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // 当页面加载完成后，为左侧目录锚点高亮做处理
+    document.addEventListener('DOMContentLoaded', function() {
+      const sectionLis = document.querySelectorAll('.section-list li');
+      const sections = document.querySelectorAll('.video-section');
+
+      // 用 IntersectionObserver 监听哪个 section 正在视口中
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // 找到相应的 li，并加 .active
+            const id = entry.target.getAttribute('id');
+            sectionLis.forEach(li => {
+              li.classList.toggle('active', li.querySelector('a').getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, {
+        root: document.querySelector('.content-wrapper'),
+        threshold: 0.6  // 当 60% 可视时视为“在视口中”
+      });
+
+      sections.forEach(sec => observer.observe(sec));
+    });
+  </script>
 </body>
 </html>
