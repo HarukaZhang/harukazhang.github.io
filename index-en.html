@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junyao Zhang</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Noto Sans SC for consistent Chinese/English styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: yellowgreen;
+      font-family: 'Noto Sans SC', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Fullscreen background video */
+    #bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.75;
+    }
+
+    /* Language toggle at top-left */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 2;
+      text-align: left;
+    }
+    .language-link {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ccc;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+
+    /* Navigation at top-right */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: yellowgreen;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+
+    /* Main content centered */
+    main {
+      position: relative;
+      z-index: 1;
+      padding-top: 40px; /* pull content up a bit */
+      text-align: center;
+    }
+    main h1 {
+      margin: 0;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: 12px;
+      line-height: 1;
+      color: yellowgreen;
+      opacity: 0;
+      animation: slideIn 0.8s ease-out 0s forwards;
+    }
+    main p {
+      margin: 0;
+      font-size: 16px;
+      color: yellowgreen;
+      line-height: 1;
+      font-style: italic;
+      opacity: 0;
+      animation: slideIn 0.8s ease-out 0.3s forwards;
+    }
+    @keyframes slideIn {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Footer at bottom-right */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 8px;
+      color: gray;
+      font-family: 'Noto Sans SC', sans-serif;
+      text-align: right;
+      z-index: 2;
+    }
+
+    /* On mobile, hide video and use poster image */
+    @media (max-width: 767px) {
+      #bg-video {
+        display: none;
+      }
+      body {
+        background: url('images/loop_1-poster.jpg') center/cover no-repeat;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    id="bg-video"
+    preload="none"
+    poster="images/loop_1-poster.jpg"
+  >
+    <source src="images/loop_1.mp4" type="video/mp4" />
+  </video>
+
+  <div class="site-index">
+    <span class="language-current">EN</span>
+    <span class="separator">/</span>
+    <a href="index.html" class="language-link">中文</a>
+  </div>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game.html">Game Cinematics</a></li>
+        <li><span>|</span></li>
+        <li><a href="video.html">Directing &amp; Visual Works</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><span>|</span></li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Junyao Zhang</h1>
+    <p>Game Cinematic Designer / Experimental Video Creator</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Junyao Zhang</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgVideo = document.getElementById('bg-video');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            bgVideo.load();
+            bgVideo.play();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(bgVideo);
+    });
+  </script>
+</body>
+</html>

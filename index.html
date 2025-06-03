@@ -1,237 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhang Junyao's personal site</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #f0f0f0;
-            position: relative;
-        }
-        canvas {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        .site-index {
-            text-align: center;
-            padding: 10px;
-            font-size: 15px;
-            z-index: 2;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            z-index: 2;
-        }
-        header {
-            z-index: 2;
-        }
-        main {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding-top: 50px;
-        }
-        h1 {
-            font-size: 36px;
-            color: yellowgreen;  /* 修改标题颜色 */
-        }
-        p {
-            font-size: 14px;
-            color: rgb(83, 57, 177);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>张俊瑶 Zhang Junyao</title>
+  <link rel="stylesheet" href="style.css" />
 
-        /* 操作引导和分数样式 */
-        .game-info {
-            position: absolute;
-            bottom: 60px;
-            right: 30px;
-            color: purple;
-            font-size: 10px;
-            font-family: 'Futura PT', sans-serif;  /* 修改字体 */
-            line-height: 0.8;  /* 调整行距 */
-            z-index: 2;
-            text-align: right;
-        }
-    </style>
+  <!-- 引入 Noto Sans SC（中英混排设计感更强） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: yellowgreen;
+      font-family: 'Noto Sans SC', sans-serif;
+      overflow: hidden;
+      /* 去掉全局居中 */
+    }
+
+    /* 背景视频全屏铺底 */
+    #bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.75;
+    }
+
+    /* 语言切换放左上角 */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 2;
+      text-align: left; /* 保持左对齐 */
+    }
+    .language-link {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ccc;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+
+    /* 导航放右上角 */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: yellowgreen;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+
+    /* 主体文字保持居中显示 */
+  main {
+    position: relative;
+    z-index: 1;
+    padding-top: 40px; /* 缩小此值，让文字更靠上 */
+    text-align: center;
+  }
+    main h1 {
+      margin: 0;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: 12px;
+      line-height: 1;
+      color: yellowgreen;
+      opacity: 0;
+      animation: slideIn 0.8s ease-out 0s forwards;
+    }
+    main p {
+      margin: 0;
+      font-size: 16px;
+      color: yellowgreen;
+      line-height: 1;
+      font-style: italic;
+      opacity: 0;
+      animation: slideIn 0.8s ease-out 0.3s forwards;
+    }
+    @keyframes slideIn {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    
+
+    /* 页脚放右下角 */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 8px;
+      color: gray;
+      font-family: 'Noto Sans SC', sans-serif;
+      text-align: right;
+      z-index: 2;
+    }
+    
+
+    /* 移动端隐藏视频并改为静态背景 */
+    @media (max-width: 767px) {
+      #bg-video {
+        display: none;
+      }
+      body {
+        background: url('images/loop_1-poster.jpg') center/cover no-repeat;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="site-index">
-        <a href="index.html"> · ZHANG JUNYAO · </a>
-        <a href="index.html" class="language-link"> EN </a> <!-- 英文链接 -->
-        <span class="separator">/</span> <!-- 分隔符 -->
-        <a href="indexcn.html" class="language-link"> 中文 </a> <!-- 中文链接 -->
-    </div>
+  <!-- 背景视频 -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    id="bg-video"
+    preload="none"
+    poster="images/loop_1-poster.jpg"
+  >
+    <source src="images/loop_1.mp4" type="video/mp4" />
+  </video>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="game.html">GAME RELATED</a></li>
-                <li><span>|</span></li>
-                <li><a href="video.html">VIDEO</a></li>
-                <li><span>|</span></li>
-                <li><a href="photo.html">PHOTOGRAPHY</a></li>
-                <li><span>|</span></li>
-                <li><a href="album.html">ALBUM</a></li>
-                <li><span>|</span></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <li><span>|</span></li>
-                <li><a href="about.html">BIOGRAPHY</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
 
-    <main>
-        <h1>Z H A N G J u n Y a o</h1>
-        <p>personal site WIP</p>
-    </main>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game.html">游戏演出设计</a></li>
+        <li><span>|</span></li>
+        <li><a href="video.html">导演与视觉作品</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog.html">博客</a></li>
+        <li><span>|</span></li>
+        <li><a href="about.html">关于我</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <footer>
-        <p> ヾ(•ω•`)o👻👻👻👻&copy; 2025 - Junyao ZHANG</p>
-    </footer>
+  <main>
+    <h1>张俊瑶</h1>
+    <p>游戏过场动画设计师 / 实验影像创作者</p>
+  </main>
 
-    <!-- 游戏画布 -->
-    <canvas id="snakeCanvas"></canvas>
+  <footer>
+    <p>&copy; 2025 - Junyao Zhang</p>
+  </footer>
 
-    <!-- 游戏信息（操作引导、分数） -->
-    <div class="game-info">
-        <p>Best Score: <span id="bestScore">0</span></p>
-        <p>Score: <span id="score">0</span></p>
-        <p>Use Arrow Keys or WASD to control the snake</p>
-    </div>
-
-    <script>
-        // 获取画布
-        const snakeCanvas = document.getElementById('snakeCanvas');
-        const snakeCtx = snakeCanvas.getContext('2d');
-
-        // 设置画布为整个页面大小
-        snakeCanvas.width = window.innerWidth;
-        snakeCanvas.height = window.innerHeight;
-
-        // 蛇的设置
-        const snakeSize = 15;  // 蛇和食物的大小缩小
-        let snake = [{ x: 5, y: 5 }];
-        let food = { x: 10, y: 10 };
-        let direction = 'RIGHT';
-        let gameInterval;
-        let score = 0;
-        let bestScore = localStorage.getItem('bestScore') || 0;
-        let isPaused = false;  // 用于控制游戏暂停/继续
-
-        // 绘制蛇
-        function drawSnake() {
-            snakeCtx.clearRect(0, 0, snakeCanvas.width, snakeCanvas.height);
-            for (let i = 0; i < snake.length; i++) {
-                snakeCtx.fillStyle = (i === 0) ? 'purple' : 'yellowgreen';
-                snakeCtx.fillRect(snake[i].x * snakeSize, snake[i].y * snakeSize, snakeSize, snakeSize);
-            }
-        }
-
-        // 绘制食物
-        function drawFood() {
-            snakeCtx.fillStyle = 'red';
-            snakeCtx.fillRect(food.x * snakeSize, food.y * snakeSize, snakeSize, snakeSize);
-        }
-
-        // 移动蛇
-        function moveSnake() {
-            if (isPaused) return;  // 如果游戏暂停，不进行移动
-
-            const head = { ...snake[0] };
-
-            if (direction === 'UP') head.y -= 1;
-            if (direction === 'DOWN') head.y += 1;
-            if (direction === 'LEFT') head.x -= 1;
-            if (direction === 'RIGHT') head.x += 1;
-
-            snake.unshift(head);
-
-            // 检查蛇是否吃到食物
-            if (head.x === food.x && head.y === food.y) {
-                generateFood();
-                score++;
-                if (score > bestScore) {
-                    bestScore = score;
-                    localStorage.setItem('bestScore', bestScore);  // 保存最好成绩
-                }
-            } else {
-                snake.pop();
-            }
-
-            // 检查蛇是否撞墙或自己
-            if (head.x < 0 || head.x * snakeSize >= snakeCanvas.width || head.y < 0 || head.y * snakeSize >= snakeCanvas.height || isCollisionWithSelf()) {
-                clearInterval(gameInterval);
-                alert('欢迎来我的主页!ヾ(•ω•`)o');
-            }
-
-            drawSnake();
-            drawFood();
-
-            // 更新分数和最佳分数
-            document.getElementById('score').textContent = score;
-            document.getElementById('bestScore').textContent = bestScore;
-        }
-
-        // 检查是否撞到自己
-        function isCollisionWithSelf() {
-            const head = snake[0];
-            for (let i = 1; i < snake.length; i++) {
-                if (snake[i].x === head.x && snake[i].y === head.y) return true;
-            }
-            return false;
-        }
-
-        // 随机生成食物
-        function generateFood() {
-            food.x = Math.floor(Math.random() * (snakeCanvas.width / snakeSize));
-            food.y = Math.floor(Math.random() * (snakeCanvas.height / snakeSize));
-        }
-
-        // 监听键盘事件
-        document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowUp' || event.key === 'w') {
-        if (direction !== 'DOWN') direction = 'UP';  // 防止向下后立即向上
-    }
-    if (event.key === 'ArrowDown' || event.key === 's') {
-        if (direction !== 'UP') direction = 'DOWN';  // 防止向上后立即向下
-    }
-    if (event.key === 'ArrowLeft' || event.key === 'a') {
-        if (direction !== 'RIGHT') direction = 'LEFT';  // 防止向右后立即向左
-    }
-    if (event.key === 'ArrowRight' || event.key === 'd') {
-        if (direction !== 'LEFT') direction = 'RIGHT';  // 防止向左后立即向右
-    }
-
-    // 按空格键暂停或继续游戏
-    if (event.key === ' ') {
-        isPaused = !isPaused;
-        if (!isPaused) {
-            startGame();  // 重新开始游戏
-        }
-    }
-});
-
-
-        // 启动游戏
-        function startGame() {
-            // 减慢游戏速度：增加时间间隔
-            if (!gameInterval) {
-                gameInterval = setInterval(moveSnake, 100);  // 每 150ms 更新一次，略微加快蛇的速度
-            }
-        }
-
-        startGame();
-    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgVideo = document.getElementById('bg-video');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            bgVideo.load();
+            bgVideo.play();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(bgVideo);
+    });
+  </script>
 </body>
 </html>

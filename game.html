@@ -1,101 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junyao ZHANG</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>game · Junyao ZHANG</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Noto Sans SC for consistent styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: yellowgreen;
+      font-family: 'Noto Sans SC', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Language toggle at top-left */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 2;
+      text-align: left;
+    }
+    .language-link {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ccc;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+
+    /* Navigation at top-right */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: yellowgreen;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+
+    /* Main content area */
+    main {
+      position: relative;
+      z-index: 1;
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    /* game container: left description, right video */
+    .game-container {
+      display: flex;
+      width: 100%;
+      height: auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    /* Left column: video description */
+    .game-image {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+      margin: 0;
+      padding-right: 20px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    .game-image h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: yellowgreen;
+    }
+    .game-image p {
+      margin: 12px 0;
+      line-height: 1.4;
+      color: #e0ffe0;
+      font-size: 14px;
+    }
+    .game-image p em {
+      color: #bddf7b;
+    }
+    .game-image .separator-line {
+      text-align: center;
+      color: gray;
+      margin: 10px 0;
+    }
+
+    /* Right column: embedded video */
+    .game-content {
+      flex: 0 0 66.6667%;
+      max-width: 66.6667%;
+      padding-left: 0px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .game-content video {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* Footer at bottom-right */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 12px;
+      color: gray;
+      font-family: 'Noto Sans SC', sans-serif;
+      text-align: right;
+      z-index: 2;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+      body {
+        overflow-y: auto;
+      }
+      .game-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .game-image {
+        flex: 0 0 90%;
+        max-width: 90%;
+        margin-bottom: 20px;
+        padding-right: 0;
+        text-align: center;
+      }
+      .game-content {
+        flex: 0 0 90%;
+        max-width: 90%;
+        padding-left: 0;
+      }
+      .game-content video {
+        width: 100%;
+      }
+      footer {
+        bottom: 50px;
+        right: 10px;
+        font-size: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="site-index">
-        <a href="index.html"> · ZHANG JUNYAO · </a>
-        <a href="index.html" class="language-link"> EN </a> <!-- 英文链接 -->
-        <span class="separator">/</span> <!-- 分隔符 -->
-        <a href="indexcn.html" class="language-link"> 中文 </a> <!-- 中文链接 -->
-    </div>
-    
-     <!-- Header with navigation links -->
-     <header>
-        <nav>
-            <ul>
-                <li><a href="game.html">GAME RELATED</a></li>
-                <li><span>|</span></li>
-                <li><a href="video.html">VIDEO</a></li>
-                <li><span>|</span></li>
-                <li><a href="photo.html">PHOTOGRAPHY</a></li>
-                <li><span>|</span></li>
-                <li><a href="album.html">ALBUM</a></li>
-                <li><span>|</span></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <li><span>|</span></li>
-                <li><a href="about.html">BIOGRAPHY</a></li>
-            </ul>
-        </nav>
-    </header>
 
-<div class="video-wrapper">
-    <h1 class="video-title">游戏相关作品</h1>
-    <div class="video-list">
-        <!-- 每个视频 -->
-        <div class="video-item">
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/247431256?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">
-                <p>蜃楼 28mins54s 2017<br>
-                    类型: 剧情 / 科幻<br>
-                    类型: 剧情 / 科幻<br>        
-                    类型: 剧情 / 科幻<br>        
-                    类型: 剧情 / 科幻<br>        
-                    类型: 剧情 / 科幻<br>
-                    上映日期: 2017年</p>
-            </div>
-        </div>
-        <!-- 每个视频 -->
-<div class="video-item">
-    <div class="video-container">
-        <iframe 
-            src="https://www.youtube.com/embed/wXbCu9RJpz4?si=nt7FfYPCn6S6_pVB" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    <div class="video-caption">
-        <p>作品名称: 示例作品<br>
-            导演: <br>
-            类型: 短片 / 科幻<br>
-            时长: 15mins<br>
-            上映日期: 2024年</p>
-    </div>
-</div>
+  <!-- Language toggle -->
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
 
-        <!-- 你可以复制上面的 block 来添加更多视频 -->
-        <div class="video-item">
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/508059785?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">
-                <p>蜃楼 28mins54s 2017<br>
-                    导演: <br>
-                    类型: 剧情 / 科幻<br>
-                    导演: <br>
-                    类型: 剧情 / 科幻<br>        导演:<br>
-                    类型: 剧情 / 科幻<br>        导演: <br>
-                    类型: 剧情 / 科幻<br>        导演: <br>
-                    类型: 剧情 / 科幻<br>
-                    上映日期: 2017年</p>
-            </div>
-        </div>
-        <!-- 继续添加更多视频和对应的文字 -->
-          
-    </div>
-</div>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game.html">游戏演出设计</a></li>
+        <li><span>|</span></li>
+        <li><a href="video.html">导演与视觉作品</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog.html">博客</a></li>
+        <li><span>|</span></li>
+        <li><a href="about.html">关于我</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <footer>
-        <p>(￣y▽,￣)╭ 🎮🎮🎮🎮🎮🎮🎮🎮</p>
-    </footer>
+  <!-- Main game section -->
+  <main>
+    <div class="game-container">
+      <!-- Left: text description -->
+      <div class="game-image">
+        <h2>刺客信条·影</h2>
+        <p>过场动画设计   育碧成都</p>
+        <div class="separator-line">———————</div>
+        <p>宇喜多直家（贵族）<br><em> ·连歌会 贵族登场/击退浪人<br> ·春与秋 贵族之死</em></p>
+        <p>别所治正（牛）<br><em>·断角 攻打计划/牛之死</em></p>
+        <p>弥助<br><em> · 银后登场/卡罗现身/银后约定</em></p>
+        <p>小四郎<br><em>· 恋爱场景</em></p>
+
+      </div>
+      <!-- Right: embedded video -->
+      <div class="game-content">
+        <video src="images/GOL_120_Q005_2NAO.mp4" controls></video>
+      </div>
+    </div>
+  </main>
+
+
 </body>
 </html>

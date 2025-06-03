@@ -1,94 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junyao ZHANG</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Junyao ZHANG</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Noto Sans SC for consistent styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: yellowgreen;
+      font-family: 'Noto Sans SC', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Fullscreen background video */
+    #bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.75;
+    }
+
+    /* Language toggle at top-left */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 2;
+      text-align: left;
+    }
+    .language-link {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ccc;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+
+    /* Navigation at top-right */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: yellowgreen;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+
+    /* Main content area */
+    main {
+      position: relative;
+      z-index: 1;
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    /* About container: image takes left third, text takes right two-thirds */
+    .about-container {
+      display: flex;
+      width: 100%;
+      height: auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .about-image {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+      margin: 0;
+    }
+    .about-image img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+    }
+    .about-content {
+      flex: 0 0 66.6667%;
+      max-width: 66.6667%;
+      padding-left: 20px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    .about-content h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: yellowgreen;
+    }
+    .about-content p {
+      margin: 12px 0;
+      line-height: 1.4;
+      color: #e0ffe0;
+      font-size: 14px;
+    }
+    .about-content p em {
+      color: #bddf7b;
+    }
+    .about-content .separator-line {
+      text-align: center;
+      color: gray;
+      margin: 10px 0;
+    }
+
+    /* Footer at bottom-right */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 12px;
+      color: gray;
+      font-family: 'Noto Sans SC', sans-serif;
+      text-align: right;
+      z-index: 2;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+      #bg-video {
+        display: none;
+      }
+      body {
+        background: url('images/loop_1-poster.jpg') center/cover no-repeat;
+      }
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .about-image {
+        flex: 0 0 80%;
+        max-width: 80%;
+        margin-bottom: 20px;
+      }
+      .about-content {
+        flex: 0 0 90%;
+        max-width: 90%;
+        padding-left: 0;
+        text-align: center;
+      }
+      footer {
+        bottom: 50px;
+        right: 10px;
+        font-size: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Background video -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    id="bg-video"
+    preload="none"
+    poster="images/loop_1-poster.jpg"
+  >
+    <source src="images/loop_1.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Language toggle -->
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game.html">游戏演出设计</a></li>
+        <li><span>|</span></li>
+        <li><a href="video.html">导演与视觉作品</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog.html">博客</a></li>
+        <li><span>|</span></li>
+        <li><a href="about.html">关于我</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main about section -->
+  <main>
     <div class="about-container">
-        <!-- 左侧的图片 -->
-        <div class="about-image">
-            <img src="images/CVPH.jpg" alt="Junyao ZHANG" />
-        </div>
-        
-        <!-- 右侧的简历 -->
-        <div class="about-content">
-            <p>🎥🎶⢀⡤⠶⠶⠶⠶⠤⢀⡀⠤⠶⠶⠶⠤⡀⢀⡤⠶⠶⠶⠶⠤⢀⡀⠤⠶⠶⠶⠤⡤⠶⠶⠶⠶⠤⢀⡀⠤⠶⠶⠶⠤⡀⢀⡤⠶⠶⠶⠶⠤⢀⡀⠤⠶⠶⠶⠤⡀⡀⠤⠶⠶⠶</p>   
-            <h2>ZHANG JunYao</h2>
-            <p class="adjust-line-height"><em> ChengDu, China </em></p>   
-            <p class="adjust-line-height"><em> lalaethzhang@gmail.com</em></p>
-            <p>————————————————————————————— ฅ՞•ﻌ•՞ฅ︎ —————————————————————————————</p>   
-            <br>
-            <p>ZHANG Junyao is a passionate game developer and creative filmmaker, focusing on video game cinematic design, storytelling, and exploring audiovisual language. Her work explores complex, dark themes, with an emphasis on the relationship between modern technology and humanity. Her projects often combine elements of soft science fiction and low magic, aiming to convey emotions and philosophical reflections.</p>
+      <!-- Left: image occupying one-third width -->
+      <div class="about-image">
+        <img src="images/CVPH.jpg" alt="Junyao ZHANG" />
+      </div>
+      <!-- Right: content occupying two-thirds width -->
+      <div class="about-content">
+  <p></p>
+  <h2>张俊瑶</h2>
+  <p>📍 中国成都<br>    ✉️ lalaethzhang@gmail.com</p>
+  <div class="separator-line">————————————————————————————— ฅ՞•ﻌ•՞ฅ︎ —————————————————————————————</div>
+  <p>从小喜欢看电影和玩游戏，大学里第一次尝试做短片，才发现“让画面说话”可以比文字更直击人心。后来进了育碧成都，我在镜头与剧情之间跳舞，用每一帧告诉玩家故事，也把生活中的小细节融入到创作中，让观者能感受到温度与思考。</p>
+  <p>我的作品往往带着一丝科幻与魔法的味道，希望通过画面让人感受到科技与人性的冲突，并在复杂环境中找到情感的共鸣。</p>
+  <p>作品曾在国际展览和社区平台被讨论，无论是短片还是游戏，都希望观众能从中看到自己的影子，并被故事带往未知的思考。</p>
+  <p>毕业于EUR ArTeC期间，我不仅专注交互式电影创作，还曾赴日本中央大学社会学系交换，深度体验不同文化与学术氛围。现在，我是育碧成都电影组的一员，和团队一起推进游戏与影视艺术的融合。</p>
+  <br>
+  <p>工作经历<br> · Ubisoft成都<br>
+    过场动画设计师 Cinematic Designer<br> 
+       2022年12月–2024年11月 <em>刺客信条：影</em><br>
+       2024年12月–至今<em>未公开3A游戏项目</em><br>
+  </p>
+  <br>
+  <p>教育背景<br>
+     · 2020–2022 法国巴黎第八大学 & 巴黎第十大学（EUR ArTeC）<br>
+       科技艺术与创作硕士<br>
+       <em>交互式电影创作研究，独立项目：交互式电影《Omicron》。</em><br>
+       <em>期间以交换生身份赴日本中央大学社会学系学习，专注乌托邦与意识形态理论研究。</em><br><br>
+     · 2019–2020 法国3IS国际音像学院<br>
+       导演硕士<br>
+       <em>短片《失忆症候群》曾入选英国 Lift-off 国际电影节。</em><br><br>
+     · 2018–2019 法国南特高等美术学院<br>
+       电影预科学习<br>
+       <em>主研法国电影制作与欧洲艺术哲学。</em><br><br>
+     · 2013–2017 浙江传媒学院 影视摄影与制作本科<br>
+       <em>期间作为导演独立创作多部短片。</em>
+  </p>
+</div>
 
-            <p>Her creative endeavors primarily examine the boundaries between the living and the inanimate, the human and the non-human. Through game design and film scriptwriting, he explores the conflicts between technology and human existence, as well as questions of moral choices and existential crises in a future society.</p>
-
-            <p>Junyao ZHANG's work has been showcased at various international exhibitions and recognized across multiple media platforms. Key projects include video games that explore philosophy, emotions, and ethics, as well as film scripts that present profound artistic expressions.</p>
-
-            <p>She graduated from EUR ArTeC and is currently a core member of the cinematic team at Ubisoft Chengdu studio, where she is committed to advancing cross-disciplinary innovation between game and film arts.</p>
-            <br>
-
-            <p>PROFESSIONAL EXPERIENCE<br>  
-                · 2022- Ubisoft Chengdu<br>
-                Cinematic Designer<br>
-                Project: <em>Assassin's Creed: Shadow</em>
-            </p>   
-            <br>
-            <p>EDUCATION <br>
-                · 2020-2022 University Paris 8 & University Paris Nanterre <br>
-                Master of Arts in Art Technology and Creation at EUR ArTeC. <br>
-                <em>Activities: Drummer, songwriter, poet, and creator of Twine-based interactive text games. </em><br>
-                <em>Independent project: Omicron, an interactive film.</em> <br>
-                <br>
-                · 2020-2021 Chuo University <br>
-                Master Exchange in Sociology. <br>
-                <em>Focus: Japanese Medieval Literature, Chinese Poetry, and Karl Mannheim's social theory. </em><br>
-                <br>
-                · 2019-2020 Insitut International d'Image et du Son (3IS) <br>
-                Master of Arts in Film/Cinema/Video Studies. <br>
-                <em>Accomplishments: Shortlisted scripts and short films at the UK Lift-off International Film Festival. </em><br>
-                <br>
-                · 2018-2019 Beaux-Arts Nantes Saint-Nazaire <br>
-                Preparatory Program in Film Studies. <br>
-                <em>Focus: French film production and European art philosophy. </em><br>
-                <br>
-                · 2013-2017 Zhejiang University of Media and Communications <br>
-                Bachelor of Arts in Cinematography and Production. <br>
-                <em>Activities: Independent filmmaking. </em></p>
-
-        </div>
     </div>
+  </main>
 
-    <div class="site-index">
-        <a href="index.html"> · ZHANG JUNYAO · </a>
-        <a href="index.html" class="language-link"> EN </a> <!-- 英文链接 -->
-        <span class="separator">/</span> <!-- 分隔符 -->
-        <a href="indexcn.html" class="language-link"> 中文 </a> <!-- 中文链接 -->
-    </div>
-    
-    <!-- Header with navigation links -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="game.html">GAME RELATED</a></li>
-                <li><span>|</span></li>
-                <li><a href="video.html">VIDEO</a></li>
-                <li><span>|</span></li>
-                <li><a href="photo.html">PHOTOGRAPHY</a></li>
-                <li><span>|</span></li>
-                <li><a href="album.html">ALBUM</a></li>
-                <li><span>|</span></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <li><span>|</span></li>
-                <li><a href="about.html">BIOGRAPHY</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <footer>
-        <p>&copy; 2024 - Junyao ZHANG</p>
-    </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgVideo = document.getElementById('bg-video');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            bgVideo.load();
+            bgVideo.play();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(bg-video);
+    });
+  </script>
 </body>
 </html>
