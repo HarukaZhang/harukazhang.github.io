@@ -1,60 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junyao ZHANG</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog · Junyao ZHANG</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: yellowgreen;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+    #bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.75;
+    }
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 2;
+    }
+    .language-link {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ccc;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: yellowgreen;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 100px 40px 60px 40px;
+      width: 100%;
+      max-width: none;
+      background: rgba(0, 0, 0, 0.5);
+      text-align: left;
+     /* left: 20%; */
+background: linear-gradient(to right, yellowgreen 4px, transparent 0) no-repeat;
+background-position: 200px 0;
+background-size: 4px 100%;
+      box-sizing: border-box;
+    min-height: 100px; /* 绿色线的最小长度 */
+
+    }
+    .blog-category {
+      margin-left: 10%;
+      margin-bottom: 40px;
+    }
+    .blog-category h2 {
+      font-size: 24px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .blog-category h2:hover {
+  color: #acf248;
+}
+    .blog-list {
+      display: none;
+      margin-left: 20px;
+    }
+    .blog-list.active {
+      display: block;
+    }
+    .blog-post {
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #5a5;
+    }
+    .blog-post h3 {
+      font-size: 18px;
+      margin: 0 0 8px;
+    }
+    .blog-post h3 a {
+      color: #cdf2b5;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .blog-post h3 a:hover {
+      color: #acf248;
+    }
+    .blog-content {
+      display: none;
+      padding-top: 10px;
+      color: #e0ffe0;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .blog-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 12px;
+      color: gray;
+      text-align: right;
+      z-index: 2;
+    }
+    @media (max-width: 767px) {
+      #bg-video { display: none; }
+      body { background: url('images/loop_1-poster.jpg') center/cover no-repeat; }
+      main {
+        padding: 80px 20px 40px;
+        border-left: none;
+      }
+      .blog-category {
+        margin-left: 0;
+      }
+    }
+    .essay-body {
+  font-size: 13px;
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.6;
+  color: #cceccc;
+}
+
+  </style>
 </head>
 <body>
-    <div class="site-index">
-        <a href="index.html"> · ZHANG JUNYAO · </a>
-        <a href="index.html" class="language-link"> EN </a> <!-- 英文链接 -->
-        <span class="separator">/</span> <!-- 分隔符 -->
-        <a href="indexcn.html" class="language-link"> 中文 </a> <!-- 中文链接 -->
+  <video autoplay muted loop playsinline id="bg-video" preload="none" poster="images/loop_1-poster.jpg">
+    <source src="images/loop_1.mp4" type="video/mp4" />
+  </video>
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game.html">游戏演出设计</a></li>
+        <li><span>|</span></li>
+        <li><a href="video.html">导演与视觉作品</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog.html">博客</a></li>
+        <li><span>|</span></li>
+        <li><a href="about.html">关于我</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="blog-category">
+  <h2 onclick="toggleCategory('essay-list')">论文</h2>
+  <div class="blog-list active" id="essay-list">
+
+    <div class="blog-post">
+      <h3><a href="#" onclick="showPost('essay-a')">1. DILEMMES ET CONTROVERSES</a></h3>
+      <div class="blog-content" id="essay-a">
+        <iframe src="pdfs/Citton-Querrien-MULT_057.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        <p style="font-size: 13px; color: #aaa; margin-top: 10px;">
+          如无法加载 PDF，请点击
+          <a href="pdfs/Citton-Querrien-MULT_057.pdf" target="_blank" style="color: #acf248; text-decoration: underline;">
+            此处查看
+          </a>。
+        </p>
+      </div>
     </div>
-    
-    <!-- Header with navigation links -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="game.html">GAME RELATED</a></li>
-                <li><span>|</span></li>
-                <li><a href="video.html">VIDEO</a></li>
-                <li><span>|</span></li>
-                <li><a href="photo.html">PHOTOGRAPHY</a></li>
-                <li><span>|</span></li>
-                <li><a href="album.html">ALBUM</a></li>
-                <li><span>|</span></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <li><span>|</span></li>
-                <li><a href="about.html">BIOGRAPHY</a></li>
-            </ul>
-        </nav>
-    </header>
 
-<!-- Main content centered -->
-<main class="blog-page">
-    <h1 class="blog-title">论文杂记</h1>
-    
-    <!-- Article List -->
-    <div class="articles">
-        <h2><a href="article1.html">文章标题 1</a></h2>
-        <p>简介：这是一篇关于技术的文章。</p>
-
-        <h2><a href="article2.html">文章标题 2</a></h2>
-        <p>简介：这篇文章讨论了音乐创作的过程。</p>
-
-        <h2><a href="article3.html">文章标题 3</a></h2>
-        <p>简介：这是关于游戏设计的深度探讨。</p>
-
-        <!-- 你可以根据需要添加更多文章 -->
+    <div class="blog-post">
+      <h3><a href="#" onclick="showPost('essay-b')">论文 B：从镜头语言看游戏情绪操控</a></h3>
+      <div class="blog-content" id="essay-b">
+        <p>如何通过构图、景别和节奏在玩家不自觉中引导情绪。</p>
+      </div>
     </div>
-</main>
 
+  </div>
+</div>
 
-    <footer>
-        <p>w(ﾟДﾟ)/📖📖📖📖📖📖📖📖</p>
-    </footer>
+    <div class="blog-category">
+      <h2 onclick="toggleCategory('prose-list')">散文</h2>
+<div class="blog-list active" id="prose-list">
+        <div class="blog-post">
+          <h3><a href="#" onclick="showPost('prose-a')">散文 A：春天的影子</a></h3>
+          <div class="blog-content" id="prose-a">
+            <p>有些情绪，只能在暮春的空气里沉默地绽放。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="blog-category">
+      <h2 onclick="toggleCategory('note-list')">杂谈</h2>
+<div class="blog-list active" id="note-list">
+        <div class="blog-post">
+          <h3><a href="#" onclick="showPost('note-a')">杂谈 A：从bug到灵感</a></h3>
+          <div class="blog-content" id="note-a">
+            <p>有时候程序崩坏，也能带来创作世界的缝隙。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Haruka Zhang</p>
+    <p>All works © respective owners</p>
+  </footer>
+  <script>
+    function showPost(id) {
+      document.querySelectorAll('.blog-content').forEach(div => div.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function toggleCategory(listId) {
+      const el = document.getElementById(listId);
+      el.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
