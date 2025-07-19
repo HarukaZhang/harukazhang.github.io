@@ -1,104 +1,288 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junyao ZHANG</title>
-    <link rel="stylesheet" href="style.css">
-</head> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>作品集 · 刺客信条·影 · 张俊瑶</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+ 
+ 
+ 
+ 
+ <style>
+    /* 保持原有字体和颜色 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans SC', sans-serif;
+      background-color: #0c0c0c;
+      color: #e0ffe0;
+      overflow-y: auto;
+    }
+    a {
+      color: yellowgreen;
+      text-decoration: none;
+    }
+    a:hover {
+      text-shadow: 0 0 4px rgba(191,255,89,0.7);
+    }
+    /* 语言栏（左上角） */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 10;
+      color: #ccc;
+    }
+    .language-link {
+      margin: 0 5px;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+    /* 顶部导航栏（右上角） */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 10;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      font-weight: 500;
+      color: yellowgreen;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+    /* 页脚，固定底部 */
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #0c0c0c; /* 保持背景色 */
+      color: gray;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 12px;
+      z-index: 10;
+      user-select: none;
+    }
+    /* 主内容容器，去掉sidebar，宽度100%，上方留足距离避免覆盖header */
+    .video-wrapper {
+      padding: 80px 40px 60px; /* 顶部留出足够空间给header和语言栏，底部留空间给footer */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .video-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: yellowgreen;
+      text-shadow: 0 0 6px rgb(62, 66, 55);
+      margin-bottom: 30px;
+      user-select: none;
+    }
+    /* 每个视频条目 */
+    .video-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 60px;
+      align-items: flex-start;
+    }
+    /* 视频容器，固定16:9比例，最大宽度600px */
+    .video-container {
+      flex-shrink: 0;
+      width: 800px;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 0 16px rgba(0,0,0,0.5);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    /* iframe撑满容器 */
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    /* 说明文字，右侧，占剩余空间 */
+    .video-caption {
+      flex-grow: 1;
+      color: #e0ffe0;
+      font-size: 14px;
+      line-height: 1.6;
+      user-select: text;
+      max-width: 540px;
+      white-space: normal;
+    }
+    .video-caption strong {
+      font-weight: 700;
+      font-size: 16px;
+      color: yellowgreen;
+    }
+    /* 避免caption里多余的滚动条，自动换行即可 */
+  </style>
+</head>
 <body>
-    <div class="site-index">
-        <a href="index.html"> · ZHANG JUNYAO · </a>
-        <a href="index.html" class="language-link"> EN </a> <!-- 英文链接 -->
-        <span class="separator">/</span> <!-- 分隔符 -->
-        <a href="indexcn.html" class="language-link"> 中文 </a> <!-- 中文链接 -->
-    </div>
-    
-     <!-- Header with navigation links -->
-     <header>
-        <nav>
-            <ul>
-                <li><a href="game.html">GAME RELATED</a></li>
-                <li><span>|</span></li>
-                <li><a href="video.html">VIDEO</a></li>
-                <li><span>|</span></li>
-                <li><a href="photo.html">PHOTOGRAPHY</a></li>
-                <li><span>|</span></li>
-                <li><a href="album.html">ALBUM</a></li>
-                <li><span>|</span></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <li><span>|</span></li>
-                <li><a href="about.html">BIOGRAPHY</a></li>
-            </ul>
-        </nav>
-    </header>
 
-<div class="video-wrapper">
+  <!-- Language toggle -->
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game.html">游戏过场导演作品</a></li>
+        <li><span>|</span></li>
+        <li><a href="video.html">影像与视觉作品</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog.html">博客</a></li>
+        <li><span>|</span></li>
+        <li><a href="about.html">关于我</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="video-wrapper">
     <h1 class="video-title">影像作品</h1>
-    <div class="video-list">
-        <!-- 每个视频 -->
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/247431256?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>剧情短片<br><strong>蜃楼</strong> 28mins54s 2017<br>
+        Le Mirage / Mirage<br>  
+        <em>导演 编剧 剪辑</em><br><br>
+        女孩名为希夷,<br>一场突如其来的大雨迫使她留宿诡异的山间木屋,<br>梦醒时分却出现了意想不到的人……<br></p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/wXbCu9RJpz4?si=nt7FfYPCn6S6_pVB" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>影像短片<br><strong>Omicron概念片</strong> 4mins 2022<br>
+        <em>导演 编剧 剪辑</em><br><br>
+        宇宙一分為二<br>
+        其一貓生<br>
+        其二貓死<br></p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.bilibili.com/player.html?bvid=BV1pL4y1L7n3&autoplay=0" scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>交互式影像短片<br><strong>她的房间-Omicron</strong> 30mins 2022<br>
+        <em>导演 编剧 剪辑</em><br><br>
+        Omicron进入了一处由一位人类女性记忆构成的时空裂缝<br>时间在1995年至2040年间交错，混乱的记忆与末日真相逐渐显现。<br>
+
+观众可作为Omicron做出选择，将世界引向不同的未来。
+        <br></p>
+      </div>
+    </div>
+
         <div class="video-item">
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/247431256?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">
-                <p><strong>蜃楼 </strong> 28mins54s 2017<br>
-                   Le Mirage / Mirage<br>  
-                   <em>导演 编剧 剪辑</em><br>              
-                    <br>        
-                    <br>
-                    女孩名为希夷,<br>一场突如其来的大雨迫使她留宿诡异的山间木屋,<br>梦醒时分却出现了意想不到的人……<br>
-                </p>
-            </div>
-        </div>
-        <!-- 每个视频 -->
-<div class="video-item">
-    <div class="video-container">
-        <iframe 
-            src="https://www.youtube.com/embed/wXbCu9RJpz4?si=nt7FfYPCn6S6_pVB" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    <div class="video-caption">
-        <p><strong> Omicron概念片 </strong> 4mins 2022<br>
-            <em>导演 编剧 剪辑</em><br>              
-             <br>        
-             <br>
-             宇宙一分為二             <br>
-             其一貓生             <br>
-             其二貓死<br>
-         </p>
-    </div>
-</div>
+      <div class="video-container">
+<iframe src="https://www.youtube.com/embed/aCuiRR6sRvM?start=89" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>交互式影像短片<br><strong>房间1-La Chambre1</strong> 30mins 2021<br>
+        <em>导演 编剧 剪辑 音乐</em><br><br>
+独自困在卧室408天后，一个女孩突然出现，带我逃了出来……<br><br>
 
-        <!-- 你可以复制上面的 block 来添加更多视频 -->
-        <div class="video-item">
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/508059785?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">
-                <p><strong>失忆症候群</strong> 11mins 2021<br>
-                    Amnesic Syndrome <br>
-                    <em>导演 编剧 剪辑</em><br>              
-                    <br>        
-                    <br>                   
-                    “我”的记忆出现了问题。 <br>                     <br>                   
-                    记忆中的“我”与其他人重叠在一起, <br> 穿梭于梦境与剧场间, <br> 在旅行中寻找着真实的过去。                </p>
-            </div>
-        </div>
-        <!-- 继续添加更多视频和对应的文字 -->
-          
+这段视频是一个互动视频体验，主题是反思xx期间的韧性、抵抗和真正的自由。忍受一切就是韧性吗？逃避现实也是一种抵抗吗？当我们被禁锢时，自由又在哪里？<br>
+<br>
+本视频是由Michel Meimaris、Arnaud Laborderie和Evika Karamagioli主持的“数字叙事作为公民表达方式”实验室工作坊的一部分，由EUR ArTeC与雅典大学合作举办，旨在培养学生将叙事作为一种个人和公民的表达方式。
+        <br></p>
+      </div>
     </div>
-</div>
 
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/508059785?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>散文短片<br><strong>失忆症候群</strong> 11mins 2021<br>
+        Amnesic Syndrome<br>
+        <em>导演 编剧 剪辑</em><br><br>
+        “我”的记忆出现了问题。<br><br>
+        记忆中的“我”与其他人重叠在一起,<br>穿梭于梦境与剧场间,<br>在旅行中寻找着真实的过去。<br></p>
+      </div>
+    </div>
 
-    <!-- 页脚 -->
-    <footer>
-        <p>🎬🎥📽🎬🎥📽🎬🎥( •̀ .̫ •́ )✧</p>
-    </footer>
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/247427036?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>剧情短片<br><strong>此岸永生</strong> 30mins11s 2015<br>
+        Immortel<br>
+        <em>导演 编剧 剪辑</em><br><br>
+        死神降临到一个失败者身上，告诉他生命只剩三天。<br>他于是多次尝试自杀<br>一次失败的自杀让他遇到一个特别的人...<br></p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/247427725?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>纪录片<br><strong>海上渔生</strong> 18mins05s 2014<br>
+        Life of DongJi Island<br>
+        <em>导演 录音 剪辑</em><br><br>
+        东极岛是位于中国大陆最东边的岛屿。<br>岛上村民世世代代以捕鱼为生。<br>但随着环境的破坏，鱼类资源越来越少。<br>我们来到这里，采访了渔民魏根华。<br></p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/309781202?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>第一次拍的小东西^<br><strong>画江南</strong> 1mins40s 2013<br>
+        Dessiner le sud du Yangtsé<br><br>
+        关于一个画师的内心挣扎<br></p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>🎬🎥📽🎬🎥📽🎬🎥( •̀ .̫ •́ )✧</p>
+  </footer>
+
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.onload = () => {
+      window.scrollTo(0, 0);
+      setTimeout(() => window.scrollTo(0, 0), 50);
+    };
+  </script>
 </body>
 </html>
