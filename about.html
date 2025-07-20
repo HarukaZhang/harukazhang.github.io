@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About · Junyao ZHANG</title>
-  <link rel="stylesheet" href="style.css" />
 
   <!-- Noto Sans SC for consistent styling -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
@@ -146,6 +145,11 @@
       text-align: right;
       z-index: 2;
     }
+    .main-wrapper {
+  padding: 100px 100px; /* 可按需调整上下左右边距 */
+  box-sizing: border-box;
+}
+
 
     /* Mobile adjustments */
     @media (max-width: 767px) {
@@ -217,6 +221,7 @@
 
   <!-- Main about section -->
   <main>
+      <div class="main-wrapper">
     <div class="about-container">
       <!-- Left: image occupying one-third width -->
       <div class="about-image">
@@ -259,6 +264,8 @@
 </div>
 
     </div>
+        </div> <!-- main-wrapper -->
+
   </main>
 
 
