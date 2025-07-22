@@ -189,23 +189,16 @@
     <p>Game Cinematic Designer / Experimental Video Creator</p>
   </main>
 
-  <footer>
+<footer>
+  <div style="margin-top: 5px;">
+    <script type="text/javascript" src="//counter.websiteout.net/js/25.js"></script>
+  </div>
     <p>&copy; 2025 - Junyao Zhang</p>
-    <p id="counter">0</p>
-  </footer>
+
+</footer>
+
 
   <script>
-    // 通过 CountAPI 更新浏览量计数，每次页面加载加 1
-    // 将 "your_namespace" 和 "your_key" 替换为你在 countapi 上申请的命名空间和键值
-    fetch('https://api.countapi.xyz/update/your_namespace/your_key/?amount=1')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('counter').innerText = "Views: " + data.value;
-      })
-      .catch(err => {
-        console.error("计数更新失败：", err);
-      });
-
     // 延迟加载和播放背景视频
     document.addEventListener('DOMContentLoaded', () => {
       const bgVideo = document.getElementById('bg-video');
