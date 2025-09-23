@@ -85,7 +85,7 @@
     main {
       position: relative;
       z-index: 1;
-      padding-top: 40px; /* pull content up a bit */
+      padding-top: 40px;
       text-align: center;
     }
     main h1 {
@@ -118,7 +118,7 @@
       }
     }
 
-    /* Footer at bottom-right */
+    /* Footer at bottom-right, 增加浏览量显示 */
     footer {
       position: absolute;
       bottom: 10px;
@@ -128,6 +128,14 @@
       font-family: 'Noto Sans SC', sans-serif;
       text-align: right;
       z-index: 2;
+    }
+    footer p {
+      margin: 0;
+    }
+    #counter {
+      margin-top: 5px;
+      font-size: 10px;
+      color: yellowgreen;
     }
 
     /* On mobile, hide video and use poster image */
@@ -181,11 +189,16 @@
     <p>Game Cinematic Designer / Experimental Video Creator</p>
   </main>
 
-  <footer>
+<footer>
+  <div style="margin-top: 5px;">
+<script type="text/javascript" src="https://counter.websiteout.com/js/17/4/0/0"></script>  </div>
     <p>&copy; 2025 - Junyao Zhang</p>
-  </footer>
+
+</footer>
+
 
   <script>
+    // 延迟加载和播放背景视频
     document.addEventListener('DOMContentLoaded', () => {
       const bgVideo = document.getElementById('bg-video');
       const observer = new IntersectionObserver(entries => {
