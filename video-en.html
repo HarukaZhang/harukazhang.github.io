@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>作品集 · 刺客信条·影 · 张俊瑶</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+ 
+ 
+ 
+ 
+ <style>
+    /* 保持原有字体和颜色 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans SC', sans-serif;
+      background-color: #0c0c0c;
+      color: #e0ffe0;
+      overflow-y: auto;
+    }
+    a {
+      color: yellowgreen;
+      text-decoration: none;
+    }
+    a:hover {
+      text-shadow: 0 0 4px rgba(191,255,89,0.7);
+    }
+    /* 语言栏（左上角） */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 10;
+      color: #ccc;
+    }
+    .language-link {
+      margin: 0 5px;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+    /* 顶部导航栏（右上角） */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 10;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      font-weight: 500;
+      color: yellowgreen;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+    /* 页脚，固定底部 */
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #0c0c0c; /* 保持背景色 */
+      color: gray;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 12px;
+      z-index: 10;
+      user-select: none;
+    }
+    /* 主内容容器，去掉sidebar，宽度100%，上方留足距离避免覆盖header */
+    .video-wrapper {
+      padding: 80px 40px 60px; /* 顶部留出足够空间给header和语言栏，底部留空间给footer */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .video-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: yellowgreen;
+      text-shadow: 0 0 6px rgb(62, 66, 55);
+      margin-bottom: 30px;
+      user-select: none;
+    }
+    /* 每个视频条目 */
+    .video-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 60px;
+      align-items: flex-start;
+    }
+    /* 视频容器，固定16:9比例，最大宽度600px */
+    .video-container {
+      flex-shrink: 0;
+      width: 800px;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 0 16px rgba(0,0,0,0.5);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    /* iframe撑满容器 */
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    /* 说明文字，右侧，占剩余空间 */
+    .video-caption {
+      flex-grow: 1;
+      color: #e0ffe0;
+      font-size: 14px;
+      line-height: 1.6;
+      user-select: text;
+      max-width: 540px;
+      white-space: normal;
+    }
+    .video-caption strong {
+      font-weight: 700;
+      font-size: 16px;
+      color: yellowgreen;
+    }
+    /* 避免caption里多余的滚动条，自动换行即可 */
+  </style>
+</head>
+<body>
+
+  <!-- Language toggle -->
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game-en.html">Game Cinematics</a></li>
+        <li><span>|</span></li>
+        <li><a href="video-en.html">Directing &amp; Visual Works</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog-en.html">Blog</a></li>
+        <li><span>|</span></li>
+        <li><a href="about-en.html">About Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="video-wrapper">
+    <h1 class="video-title">SELECT INDEPENDENT FILM WORKS</h1>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/247431256?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>Short Film<br><strong>蜃楼</strong> 28mins54s 2017<br>
+        Le Mirage / Mirage<br>  
+<em>Director · Screenwriter · Editor</em><br><br>
+A girl named Xiyi,<br>
+Caught in a sudden downpour, is forced to stay overnight in a mysterious mountain cabin,<br>
+Only to awaken and encounter an unexpected person…<br><br>
+<span style="font-size: 0.7em;">/This film was a 2017 undergraduate graduation project at Zhejiang University of Media and Communications<br>and won the Jury Grand Prize at the School’s Excellent Graduation Works Exhibition/</span>
+<br></p>
+      </div>
+    </div>
+
+
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.bilibili.com/player.html?bvid=BV1pL4y1L7n3&autoplay=0" scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <p>Interactive Short Film<br><strong>Her Room - Omicron</strong> 30mins 2022<br>
+<em>Director · Screenwriter · Editor</em><br><br>
+Omicron enters a temporal rift composed of the memories of a human woman.<br>
+Time interweaves between 1995 and 2040, as chaotic memories and apocalyptic truths gradually emerge.<br>
+
+Viewers can make choices as Omicron, guiding the world toward different futures.
+<br><br>
+<span style="font-size: 0.7em;">/* This work is part of the EUR ArTeC master’s graduation project “Exploring Temporal Possibilities in Interactive Film”<br>Exhibited on October 5–6, 2022 at the Cité Internationale des Arts, France /<br>
+<br>Click <a href="https://drive.google.com/file/d/1sfDdguBr4FhE5pCEH96nAki5VpOzD7Kl/view?usp=drive_link" target="_blank">here</a> to view the thesis
+<br><br>
+/ EUR ArTeC (École Universitaire de Recherche ArTeC) is a top-tier research institute for art and technology, jointly founded by University of Paris 8 and University of Paris 10. It is funded by the French National Research Agency (ANR) and is a national key project under the French Future Investment Program (PIA). The institute focuses on research and creation at the intersection of art, technology, and digital media, aiming to cultivate a new generation of dual-skilled talents in “scientific research – artistic creation.” */</span>
+
+</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/wXbCu9RJpz4?si=nt7FfYPCn6S6_pVB" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+<p>Video Art<br><strong>Omicron Concept Film</strong> 4 mins 2021<br>
+<em>Director · Screenwriter · Editor</em><br><br>
+The universe splits in two<br>
+1st: the cat lives<br>
+2nd: the cat dies<br><br>
+<span style="font-size: 0.7em;">/* This film is part of the laboratory workshop “Carnet en Ligne – Online Notebook” led by Charlotte Bouteille-Meister and Lenay Alice, aiming to document the research and creative process in multiple forms (presentation of research and work plans, audio, graphics or video works, records of artistic experiments, etc.).</span>
+</p>
+
+      </div>
+    </div>
+
+
+        <div class="video-item">
+      <div class="video-container">
+<iframe src="https://www.youtube.com/embed/aCuiRR6sRvM?start=89" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+       <p>Interactive Video Short<br><strong>Room 1 – La Chambre 1</strong> 30 mins 2021<br>
+<em>Director · Screenwriter · Editor · Music</em><br><br>
+After being trapped alone in a bedroom for 408 days, a girl suddenly appears and leads me out…<br><br>
+
+This video is an interactive experience exploring resilience, resistance, and true freedom during XX period. Is enduring everything resilience? Is escaping reality a form of resistance? When we are confined, where does freedom lie?<br><br>
+
+<span style="font-size: 0.7em;">/\* This work is part of the laboratory workshop “Digital Narratives as Civic Expression” led by Michel Meimaris, Arnaud Laborderie, and Evika Karamagioli, organized in collaboration with EUR ArTeC and the University of Athens, aiming to cultivate students’ ability to use narrative as a personal and civic form of expression. \*/</span>
+
+</p>
+
+        <br></p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/508059785?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+       <p>Prose Short Film<br><strong>Amnesic Syndrome</strong> 11 mins 2021<br>
+<em>Director · Screenwriter · Editor</em><br><br>
+“My” memory begins to fail.<br><br>
+The “I” in memory overlaps with others,<br>
+Shuttling between dreams and the theater,<br>
+Searching for the true past during the journey.<br><br>
+<span style="font-size: 0.7em;">/* This film was selected for the UK Lift-Off International Film Festival and screened online. */</span>
+</p>
+
+
+</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/247427036?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+<p>Drama Short Film<br><strong>Immortality on This Shore</strong> 30 mins 11 s 2015<br>
+Immortel<br>
+<em>Director · Screenwriter · Editor</em><br><br>
+The Grim Reaper visits a failure, telling him he has only three days left to live.<br>
+He attempts suicide multiple times,<br>
+And one failed attempt leads him to meet someone special…</p>
+<br>
+<span style="font-size: 0.7em;">/* This film was screened offline in 2015 at the Hangzhou Experimental Film Workshop “Weekend” at Blue Moon Forest */</span>
+</div>
+
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/247427725?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+<p>Documentary<br><strong>Life at Sea: Dongji Island</strong> 18 mins 05 s 2014<br>
+Life of DongJi Island<br>
+<em>Director · Sound Recording · Editor</em><br><br>
+Dongji Island is the easternmost island of mainland China.<br>
+Generations of villagers have lived by fishing.<br>
+However, as the environment deteriorates, fish resources are becoming increasingly scarce.<br>
+We visited the island and interviewed the fisherman Wei Genhua.</p>
+</div>
+
+    </div>
+
+    <div class="video-item">
+      <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/309781202?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+<div class="video-caption">
+<p>Trailer<br><strong>Painting Jiangnan</strong> 1 min 40 s 2013<br>
+Dessiner le Sud du Yangtsé<br><br>
+About the inner struggles of a painter<br><br>
+<span style="font-size: 0.7em;">/* A course project, but it was my first little filming attempt ^-^ */</span>
+</p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>🎬🎥📽🎬🎥📽🎬🎥( •̀ .̫ •́ )✧</p>
+  </footer>
+
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.onload = () => {
+      window.scrollTo(0, 0);
+      setTimeout(() => window.scrollTo(0, 0), 50);
+    };
+  </script>
+</body>
+</html>

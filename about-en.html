@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Junyao ZHANG</title>
+
+  <!-- Noto Sans SC for consistent styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: yellowgreen;
+      font-family: 'Noto Sans SC', sans-serif;
+  /* 移除 overflow: hidden; */
+    }
+
+    /* Fullscreen background video */
+    #bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.75;
+    }
+
+    /* Language toggle at top-left */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 2;
+      text-align: left;
+    }
+    .language-link {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ccc;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+
+    /* Navigation at top-right */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: yellowgreen;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+
+    /* Main content area */
+    main {
+      position: relative;
+      z-index: 1;
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    /* About container: image takes left third, text takes right two-thirds */
+    .about-container {
+      display: flex;
+      width: 100%;
+      height: auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .about-image {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+      margin: 0;
+    }
+    .about-image img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+    }
+    .about-content {
+      flex: 0 0 66.6667%;
+      max-width: 66.6667%;
+      padding-left: 20px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    .about-content h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: yellowgreen;
+    }
+    .about-content p {
+      margin: 12px 0;
+      line-height: 1.4;
+      color: #e0ffe0;
+      font-size: 14px;
+    }
+    .about-content p em {
+      color: #bddf7b;
+    }
+    .about-content .separator-line {
+      text-align: center;
+      color: gray;
+      margin: 10px 0;
+    }
+
+    /* Footer at bottom-right */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 12px;
+      color: gray;
+      font-family: 'Noto Sans SC', sans-serif;
+      text-align: right;
+      z-index: 2;
+    }
+    .main-wrapper {
+  padding: 100px 100px; /* 可按需调整上下左右边距 */
+  box-sizing: border-box;
+}
+
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+      #bg-video {
+        display: none;
+      }
+      body {
+        background: url('images/loop_1-poster.jpg') center/cover no-repeat;
+      }
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .about-image {
+        flex: 0 0 80%;
+        max-width: 80%;
+        margin-bottom: 20px;
+      }
+      .about-content {
+        flex: 0 0 90%;
+        max-width: 90%;
+        padding-left: 0;
+        text-align: center;
+      }
+      footer {
+        bottom: 50px;
+        right: 10px;
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    id="bg-video"
+    preload="none"
+    poster="images/loop_1-poster.jpg"
+  >
+    <source src="images/loop_1.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Language toggle -->
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game-en.html">Game Cinematics</a></li>
+        <li><span>|</span></li>
+        <li><a href="video-en.html">Directing &amp; Visual Works</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog-en.html">Blog</a></li>
+        <li><span>|</span></li>
+        <li><a href="about-en.html">About Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main about section -->
+  <main>
+      <div class="main-wrapper">
+    <div class="about-container">
+      <!-- Left: image occupying one-third width -->
+      <div class="about-image">
+        <img src="images/CV.jpg" alt="Junyao ZHANG" />
+      </div>
+      <!-- Right: content occupying two-thirds width -->
+      <div class="about-content">
+  <p></p>
+  <h2>ZHANG Junyao</h2>
+  <p>📍 Chengdu, China<br>    ✉️ lalaethzhang@gmail.com</p>
+  <div class="separator-line">——————————————————————————————————————————————————————————</div>
+<p>Zhang Junyao is a creative director specializing in visual storytelling and game cinematic design, with a dual background in film and digital arts. She excels at constructing real-time narrative scenes imbued with emotional tension and immersion. Her work integrates dramaturgy, audiovisual aesthetics, and AAA console game logic, focusing on the deep coordination of camera language, character performance, and gameplay progression. <br><br>
+
+She has years of experience in independent short film production and has conducted research and creative work in interactive media and digital storytelling within the French national key project EUR ArTeC. She currently works at Ubisoft Chengdu Studio, where she has contributed to and led the cinematic design and implementation of multiple sequences in <em>Assassin’s Creed: Shadow</em> and other unannounced projects.
+<br><br>
+
+She is familiar with the game narrative production pipeline, proficient in using Ubisoft’s proprietary engine for real-time performance, and capable of efficient collaboration with narrative, quest, level design, art, animation, VFX, sound, and technical teams, driving scripts from concept to full implementation.
+<br><br><br>
+
+<p>Professional Experience<br> · Ubisoft Chengdu Studio, China<br> Cinematic Designer<br>  Dec 2022 – Dec 2024 <em>Assassin’s Creed: Shadow</em>
+  <br>  Dec 2024 – Present <em>Assassin’s Creed Series: Unannounced Project</em><br> </p> 
+  <p>Education<br> · 2020–2022 University of Paris 8 & University of Paris 10 (EUR ArTeC), France<br>  Master’s in Art, Technology and Creation<br> 
+     <em>Master Research: Interactive Film Studies & Creation / Independent Project: Interactive Film “Her Room – Omicron”</em><br> 
+     <em>During this period, spent one semester as an exchange student at Chuo University, Japan, focusing on ideology and utopia theory and integrating it into her creative work.</em>
+    <br> · 2019–2020 3IS International School of Audiovisual, France<br>  Master’s in Directing<br>  <em>Short film “Amnesia Syndrome” was selected for the UK Lift-off International Film Festival</em>
+    <br> · 2018–2019 Nantes School of Fine Arts, France<br>  <em>Foundation studies in film</em><br> · 2013–2017 Zhejiang University of Media and Communications, China<br>  Bachelor’s in Film and Television Photography and Production<br> 
+     <em>Directed and independently created multiple short films during this period</em> </p> </div>
+
+    </div>
+        </div> <!-- main-wrapper -->
+
+  </main>
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgVideo = document.getElementById('bg-video');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            bgVideo.load();
+            bgVideo.play();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(bg-video);
+    });
+  </script>
+</body>
+</html>

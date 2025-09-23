@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作品集 · 刺客信条·影 · 张俊瑶</title>
+<!--  <link rel="stylesheet" href="style.css" />-->
+
+  <!-- Noto Sans SC 用于中英文混排 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* --------------------------
+       全局基础 
+    -------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      color: #e0ffe0;
+      background-color: #0c0c0c;
+      overflow: hidden; /* 只让右侧滚动区滚动 */
+    }
+    a {
+      text-decoration: none;
+      color: yellowgreen;
+    }
+    a:hover {
+      text-shadow: 0 0 4px rgba(191,255,89,0.7);
+    }
+
+        /* Language toggle at top-left */
+    .site-index {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 15px;
+      z-index: 2;
+      text-align: left;
+    }
+    .language-link {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ccc;
+    }
+    .language-current {
+      margin: 0 5px;
+      color: gray;
+      cursor: default;
+    }
+ /* Navigation at top-right */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      gap: 15px;
+      font-size: 15px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: yellowgreen;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #acf248;
+    }
+    /* --------------------------
+       左侧固定栏 
+    -------------------------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40%;            /* 左侧宽度占屏幕 30% */
+  height: 100vh;         /* 始终撑满整个视口高度 */
+  background: rgba(0,0,0,0.9);
+  border-right: 1px solid rgba(100,100,100,0.3);
+
+  /* 新增：flex 布局，将内容垂直分布 */
+  display: flex;
+  flex-direction: column;
+}
+
+ /* --------------------------
+   将“项目标题+职位+分割线+目录”都放这里面 
+   让它垂直居中 
+-------------------------- */
+.sidebar-content {
+  flex: 1;                    /* 占据 .sidebar 除底部版权外的所有可用空间 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* 垂直居中这部分内容 */
+    padding-bottom: 80px;         /* 内边距可根据实际需求微调 */
+  padding-left: 120px;         /* 内边距可根据实际需求微调 */
+  padding-right: 20px;
+}
+
+/* 项目标题 */
+.sidebar .project-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: yellowgreen;
+  text-shadow: 0 0 6px rgb(62, 66, 55);
+  margin-bottom: 8px;
+}
+
+/* 职位信息 */
+.sidebar .project-role {
+  font-size: 16px;
+  color: yellowgreen;
+  margin-bottom: 16px;
+}
+
+/* 分割线 */
+.sidebar .separator-line {
+  height: 1px;
+  background: rgb(114, 153, 35);
+  margin: 16px 0;
+}
+
+/* 章节目录 */
+.sidebar .section-list {
+  overflow-y: auto;        /* 如果太多，允许滚动 */
+}
+.sidebar .section-list h3 {
+  font-size: 16px;
+  color: rgb(114, 153, 35);
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.9);
+  padding-bottom: 0px;
+    padding-top: 16px;
+
+}
+.sidebar .section-list ul {
+  list-style: none;
+}
+.sidebar .section-list li {
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.sidebar .section-list li.active > a {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+/* 底部版权：保持在 sidebar 底部 */
+.sidebar .footer {
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+  padding: 12px 0;
+}
+
+    /* --------------------------
+       右侧滚动区 
+    -------------------------- */
+    .content-wrapper {
+      position: absolute;
+      top: 0;
+      left: 20%;                /* 紧挨左侧 30% 宽度 */
+      width: 80%;
+      height: 100vh;
+      overflow-y: scroll;       /* 仅允许右侧滚动 */
+      scroll-snap-type: y mandatory; /* 强制“节”级滚动对齐 */
+    }
+    .video-section {
+      scroll-snap-align: start;    /* 每一节滚动到顶部时对齐 */
+      width: 100%;
+      height: calc(100vh);         /* 每节占满一个视口高度 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+    .video-section:nth-child(odd) {
+      background-color: #111;      /* 交替深浅背景，增强层次 */
+    }
+    .video-section:nth-child(even) {
+      background-color: #0c0c0c;
+    }
+.video-section .section-title {
+  /* 与视频同样的最大宽度 */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 16px;  /* 水平居中，底部留 16px 间距 */
+  text-align: left;     /* 文本左对齐 */
+  color: #ffffff;
+  font-size: 24px;
+  text-shadow: 0 0 4px rgba(237, 237, 237, 0.7);
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 1200px;   /* 视频最大宽度 */
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.5);
+  
+}
+
+.video-section .caption {
+  width: 100%;
+  max-width: 1200px;   /* 与视频保持一致 */
+  margin-top: 12px;
+  text-align: left;
+  color: #e0ffe0;
+  font-size: 10px;
+  line-height: 1.6;
+}
+  </style>
+</head>
+
+<body>
+
+    <!-- Language toggle -->
+  <div class="site-index">
+    <a href="index-en.html" class="language-link">EN</a>
+    <span class="separator">/</span>
+    <span class="language-current">中文</span>
+  </div>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="game-en.html">Game Cinematics</a></li>
+        <li><span>|</span></li>
+        <li><a href="video-en.html">Directing &amp; Visual Works</a></li>
+        <li><span>|</span></li>
+        <li><a href="blog-en.html">Blog</a></li>
+        <li><span>|</span></li>
+        <li><a href="about-en.html">About Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 左侧固定栏 -->
+  <aside class="sidebar">
+  <!-- ① 新增一个 .sidebar-content 容器 -->
+  <div class="sidebar-content">
+    <div class="project-title">Assassin’s Creed: Shadow</div>
+    <div class="project-role">Cinematic Design & Implementation</div>
+        <div class="project-role">2025</div>
+
+    <div class="separator-line"></div>
+
+    <div class="section-list">
+      <h3> Open World Main Quest: Assassinate the “Nobles”</h3>
+      <ul>
+        <li class="active"><a href="#sect1">1. Rengakai</a></li>
+        <li><a href="#sect2">*2. Repel the Ronin</a></li>
+        <li><a href="#sect3">3. Spring and Autumn</a></li>
+        <h3>· Open World Main Quest: Assassinate the “Ox”</h3>
+        <li><a href="#sect4">4. Raid Plan</a></li>
+        <li><a href="#sect5">*5. Broken Horn</a></li>
+        <h3>· Main Story Finale: Yasuke’s Revenge</h3>
+        <li><a href="#sect6">6. Meet Silver Queen</a></li>
+        <li><a href="#sect7">*7. Caro Reveal</a></li>
+        <li><a href="#sect8">8. Yasuke Free</a></li>
+        <h3>· Romance Side Quest: Koshiro</h3>
+        <li><a href="#sect9">*9. Lakeside Confession</a></li>
+      </ul>
+    </div>
+  </div>
+
+  </aside>
+  <!-- 右侧可滚动内容区 -->
+  <div class="content-wrapper">
+    <!-- SECTION 1 -->
+    <section id="sect1" class="video-section">
+<div class="section-title">Rengakai – First Confrontation with Ukita Naoie</div>
+<video controls preload="metadata">
+  <source src="videos/1_noblesEntrance.mp4" type="video/mp4" />
+</video>
+<div class="caption">
+<!-- <p><strong>Cinematic Level:</strong> 3.5 (0-4)</p> --> 
+<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=28&t=579" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+<p>//The “Nobles” questline is one of the key preview missions for AC: Shadow. Some Rengakai shots were also included in the <a href="https://www.bilibili.com/video/BV1PS4JexEe5/?share_source=copy_web&vd_source=a4a0ee52ccfb0fcbd9589a067c85a9b5&t=81" target="_blank"><u>global trailer</u></a> //</p>
+
+<br>
+<p><strong>Prerequisite:</strong> Players are invited by Daimyo <strong>Kuroda Kanbei</strong> to attend a <u>Rengakai</u> (a traditional Japanese poetry assembly) at Himeji Castle.</p>
+<p style="text-indent: 5em;">Hachirō (Hideie) guides the player to their seat, triggering the scene.</p>
+<p><strong>Characters:</strong> Player (selectable Naoe/Yasuke), Ukita Naoie (“Noble”), Kuroda Kanbei, Konishi Yukinaga, Renga Poet, Calligrapher, Other Guests ×3, Ronin ×2, Servants</p>
+<p><strong>Performance Narrative:</strong> Guests exchange Renga poems to mask probing and hidden tensions; calm on the surface, turbulent beneath. Daimyo <strong>Ukita Naoie</strong> initiates conversation with the player, testing them repeatedly, and then showcases his ambition through Renga, challenging Kuroda Kanbei, bringing the room to a sudden hush. As the atmosphere tightens, a group of ronin storms into the courtyard, firing indiscriminately into the assembly. Guests scatter, and the player and Ukita Naoie rise to face the attacking ronin together, before the game returns to the main mission flow.</p>
+</div>
+
+    </section>
+
+      <!-- SECTION 2 -->
+    <section id="sect2" class="video-section">
+<div class="section-title">Repelling the Ronin – Escalating Tensions and Gathering Clues</div>
+<video controls preload="metadata">
+  <source src="videos/2_AfterRengakai.mp4" type="video/mp4" />
+</video>
+<div class="caption">
+<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=28&t=827" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+<br>
+<p><strong>Prerequisite:</strong> Triggered after the player and <strong>Naoie</strong> jointly repel the attacking ronin.</p>
+<p><strong>Characters:</strong> Naoe, Yasuke, Ukita Naoie (“Noble”), Kuroda Kanbei, Konishi Yukinaga, Castle Commander, Kuroda Retainers ×3, Ukita Retainers ×2</p>
+<p><strong>Performance Narrative:</strong> After the battle, the courtyard is in disarray, and Naoe and Yasuke regroup. <strong>Naoie</strong> angrily informs Kanbei that his son Hachirō (Hideie) has been captured by the ronin, demanding full alert and deployment of his troops across Himeji Castle. Once Naoie departs, Naoe, Yasuke, and Kanbei cooperate to organize the clues they currently have: the missing Torbei and the gunpowder.</p>
+</div>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+    <section id="sect3" class="video-section">
+     <div class="section-title">Spring and Autumn – The Death of the “Noble”</div>
+<video controls preload="metadata">
+  <source src="videos/3_UkitaDefeated.mp4" type="video/mp4" />
+</video>
+<div class="caption">
+<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=29&t=2119" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+<br>
+<p><strong>Prerequisite:</strong> Triggered when the player infiltrates Himeji Castle’s main keep and defeats <strong>Ukita Naoie</strong> in the boss battle.</p>
+<p><strong>Characters:</strong> Naoe, Yasuke, Ukita Naoie (“Noble”)</p>
+<p><strong>Performance Narrative:</strong> A pivotal moment in the “Spring and Autumn” chapter, marking the end of the “Noble” Ukita Naoie’s fate amidst sudden storms and chaos.</p>
+<p style="text-indent: 5em;">Although Naoie joined the “New Shogunate,” his motive was not solely power, but also to protect his son Hachirō. Players can choose whether to spare him; if spared, they receive his poem for Hachirō. Regardless, Naoie’s death is inevitable.</p>
+</div>
+
+    </section>
+
+
+  <!-- SECTION 4 -->
+    <section id="sect4" class="video-section">
+     <div class="section-title">Raid Plan</div>
+<video controls preload="metadata">
+  <source src="videos/4_AttackPlan.mp4" type="video/mp4" />
+</video>
+<div class="caption">
+<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=27&t=1264" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+<br>
+<p><strong>Prerequisite:</strong> Triggered when the player prepares all necessary arrangements and meets <strong>Nakamura Tadashige</strong> in the downtown area of Miki Castle.</p>
+<p><strong>Characters:</strong> Naoe, Yasuke, Nakamura Tadashige</p>
+<p><strong>Performance Narrative:</strong> The three consolidate the current clues and military resources, jointly devising the assault plan against the “Ox.” Yasuke, alongside ally Koshiro, directly confronts the group to draw fire, while Naoe infiltrates Miki Castle with Nakamura to rescue the captured hostages.</p>
+</div>
+
+    </section>
+
+
+   <!-- SECTION 5 -->
+   <section id="sect5" class="video-section">
+  <div class="section-title">Broken Horn – The Death of the “Ox”</div>
+
+  <video controls preload="metadata" style="width:100%; border-radius:12px;">
+    <source src="videos/5_OxDefeated.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="caption">
+    <p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=27&t=2171" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+    <br>
+    <p><strong>Prerequisite:</strong> After Yasuke kills the “Horn” in battle and discovers it was actually a young monk, the player infiltrates Miki Castle’s main keep and defeats <strong>Bessho Harumasa</strong> in the boss battle to trigger the scene.</p>
+    <p><strong>Characters:</strong> Naoe, Yasuke, Bessho Harumasa (“Ox”)</p>
+    <p><strong>Performance Narrative:</strong> Bessho Harumasa is struck down and kneels; Naoe and Yasuke regroup. Naoe questions Bessho about the box taken by the “New Shogunate,” but Bessho claims ignorance. Frustrated, Naoe hears Bessho mock their naive and hypocritical sense of justice. Yasuke ends Bessho’s life in the way of a samurai, yet remains tormented by guilt and doubt over killing the “Horn.” Naoe comforts Yasuke. The game then returns to the main flow.</p>
+  </div>
+</section>
+
+
+    <!-- SECTION 6 -->
+    <section id="sect6" class="video-section">
+     <div class="section-title">Meet Silver Queen – Transitional Dialogue</div>
+<iframe 
+  src="https://player.bilibili.com/player.html?bvid=BV1eJQBYNE5s&p=42&t=539" 
+  scrolling="no" 
+  frameborder="no" 
+  framespacing="0" 
+  allowfullscreen="true" 
+  style="width:100%; height:600px; border-radius:12px;">
+</iframe>
+
+<div class="caption">
+<p>//This is Yasuke’s final mission. I haven’t reached this part myself yet, so I’m temporarily using a player-recorded <a href="https://www.bilibili.com/video/BV1eJQBYNE5s/?p=42&t=539" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
+<br>
+<p><strong>Prerequisite:</strong> Yasuke learns that Tanba’s <strong>“Silver Queen”</strong> has clues regarding his nemesis <strong>Caro</strong>. Travel to Tanba Castle town and speak with her to trigger the scene.</p>
+<p><strong>Characters:</strong> Yasuke, Hosokawa Tama (“Silver Queen”)</p>
+<p><strong>Performance Narrative:</strong> Yasuke wishes to question the Silver Queen, but she indicates that it is unsafe here and suggests moving to another location to talk.</p>
+</div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="sect7" class="video-section">
+     <div class="section-title">Caro Reveal</div>
+<iframe 
+  src="https://player.bilibili.com/player.html?bvid=BV1eJQBYNE5s&p=42&t=657" 
+  scrolling="no" 
+  frameborder="no" 
+  framespacing="0" 
+  allowfullscreen="true" 
+  style="width:100%; height:600px; border-radius:12px;">
+</iframe>
+<div class="caption">
+<p>//This is Yasuke’s final mission. I haven’t reached this part myself yet, so I’m temporarily using a player-recorded <a href="https://www.bilibili.com/video/BV1eJQBYNE5s/?p=42&t=657" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
+<p>//Caro’s appearance footage was edited into the Assassin’s Creed: Shadow <a href="https://www.bilibili.com/video/BV1FQfhY1Ezk/?share_source=copy_web&vd_source=a4a0ee52ccfb0fcbd9589a067c85a9b5&t=110" target="_blank"><u>global story trailer</u></a> //</p>
+<br>
+<p><strong>Prerequisite:</strong> To obtain clues about his enemesis Caro, Yasuke meets the “Silver Queen” and follows her indoors to trigger the scene.</p>
+<p><strong>Characters:</strong> Yasuke, Hosokawa Tama (“Silver Queen”), Nuno Caro</p>
+<p><strong>Performance Narrative:</strong> The “Silver Queen” serves matcha to Yasuke. As he drinks, he asks about Caro. The “Silver Queen” reveals her true identity as Hosokawa Tama (daughter of the traitorous Oda retainer Akechi Mitsuhide) and tests Yasuke’s abilities and his hatred toward Caro. Yasuke tries to ask more, but discovers the tea is drugged. Dazed, Nuno Caro suddenly appears; Tama is revealed to be aligned with him. Caro does not recognize Yasuke and mocks him, while Tama declares she will personally kill Yasuke to avenge her father. Caro leaves Yasuke in Tama’s hands. Yasuke loses consciousness…</p>
+</div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="sect8" class="video-section">
+    <div class="section-title">Yasuke Free</div>
+<iframe 
+  src="https://player.bilibili.com/player.html?bvid=BV1eJQBYNE5s&p=42&t=923" 
+  scrolling="no" 
+  frameborder="no" 
+  framespacing="0" 
+  allowfullscreen="true" 
+  style="width:100%; height:600px; border-radius:12px;">
+</iframe>
+<div class="caption">
+<p>//This is Yasuke’s final mission. I haven’t reached this part myself yet, so I’m temporarily using a player-recorded <a href="https://www.bilibili.com/video/BV1eJQBYNE5s/?p=42&t=923" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
+<br>
+<p><strong>Prerequisite:</strong> Immediately following the previous scene, <strong>Caro</strong> hands Yasuke over to <strong>Hosokawa Tama</strong>, and Yasuke loses consciousness.</p>
+<p><strong>Characters:</strong> Yasuke, Hosokawa Tama</p>
+<p><strong>Performance Narrative:</strong> Yasuke awakens in a warehouse, only to be held at gunpoint by Tama. The two confront each other—Yasuke is furious at Tama’s deception, while she explains that after Honnoji, she and her brother were under Caro’s control. To escape Caro’s influence, she demands that Yasuke rescue her brother, promising to spare him if he complies. They reach an agreement, Tama lets Yasuke go, and the game returns to its main flow.</p>
+</div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+    <section id="sect9" class="video-section">
+     <div class="section-title">Lakeside Confession – Naoe x Koshiro</div>
+<video controls preload="metadata">
+  <source src="videos/9_loveScene.mp4" type="video/mp4" />
+</video>
+<div class="caption">
+<p>//For the full mission walkthrough, click <a href="https://www.bilibili.com/video/BV1Ud5tzUEUB/?share_source=copy_web&vd_source=a4a0ee52ccfb0fcbd9589a067c85a9b5&t=1431" target="_blank"><u>here</u></a> to view the player-recorded video on Bilibili //</p>
+<br>
+<p><strong>Prerequisite:</strong> Koshiro, unable to continue fighting, wants to say goodbye. Naoe encourages him by helping him retrieve the box from his past woodworking. They walk and talk along Lovers’ Lake, reaching the lake’s central island, where their feelings deepen. Koshiro sits under a cherry tree, and the scene triggers when the player sits as well.</p>
+<p><strong>Characters:</strong> Naoe, Koshiro</p>
+<p><strong>Performance Narrative:</strong> A relatively subtle Eastern-style confession scene. Koshiro still wants to leave, and Naoe tries to stop him. Depending on the affection level and player choices, three branches are possible: Love / Friendship / Rejection:</p>
+<p style="text-indent: 5em;">- Love Branch: Affection meets the condition and the player selects “For example, me.” Koshiro gives Naoe a hairpin, Naoe steals a kiss, and they confirm their feelings, sealing their bond with a lakeside kiss.</p>
+<p style="text-indent: 5em;">- Friendship Branch: Affection meets the condition and the player selects “It’s up to you.” Koshiro gives Naoe a small wooden sword, and they agree to be allies.</p>
+<p style="text-indent: 5em;">- Rejection Branch: Affection does not meet the condition and the player selects “For example, me.” Koshiro is shocked, Naoe responds awkwardly. Koshiro gives Naoe a small wooden sword, and they agree to be allies.</p>
+</div>
+
+  </div>
+      </div>
+    </section>
+  </div>
+
+
+  <script>
+    // 当页面加载完成后，为左侧目录锚点高亮做处理
+    document.addEventListener('DOMContentLoaded', function() {
+      const sectionLis = document.querySelectorAll('.section-list li');
+      const sections = document.querySelectorAll('.video-section');
+
+      // 用 IntersectionObserver 监听哪个 section 正在视口中
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // 找到相应的 li，并加 .active
+            const id = entry.target.getAttribute('id');
+            sectionLis.forEach(li => {
+              li.classList.toggle('active', li.querySelector('a').getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, {
+        root: document.querySelector('.content-wrapper'),
+        threshold: 0.6  // 当 60% 可视时视为“在视口中”
+      });
+
+      sections.forEach(sec => observer.observe(sec));
+      const videos = document.querySelectorAll('.video-section video');
+  // 让它们都先暂停、重置
+  videos.forEach(v => {
+    v.pause();
+    v.currentTime = 0;
+  });
+  // 创建一个观察器，目标是视频元素本身
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const vid = entry.target;
+      if (entry.isIntersecting) {
+        // 当视频至少 50% 可见时，自动播放
+        vid.play().catch(()=>{ /* 静默忽略 */ });
+      } else {
+        // 一旦离开可视区域，暂停并重置
+        vid.pause();
+        vid.currentTime = 0;
+      }
+    });
+  }, {
+    root: document.querySelector('.content-wrapper'), // 你的滚动容器
+    threshold: 0.5    // 视频一半可见时才触发播放
+  });
+
+  // 为每个 <video> 注册观察器
+  videos.forEach(v => videoObserver.observe(v));
+
+    });
+  </script>
+</body>
+</html>
