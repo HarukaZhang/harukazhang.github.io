@@ -95,7 +95,7 @@
 }
 
  /* --------------------------
-   将“项目标题+职位+分割线+目录”都放这里面 
+   将"项目标题+职位+分割线+目录"都放这里面 
    让它垂直居中 
 -------------------------- */
 .sidebar-content {
@@ -104,7 +104,7 @@
   flex-direction: column;
   justify-content: center;    /* 垂直居中这部分内容 */
     padding-bottom: 80px;         /* 内边距可根据实际需求微调 */
-  padding-left: 120px;         /* 内边距可根据实际需求微调 */
+  padding-left: 20px;         /* 内边距可根据实际需求微调 */
   padding-right: 20px;
 }
 
@@ -172,11 +172,11 @@
     .content-wrapper {
       position: absolute;
       top: 0;
-      left: 20%;                /* 紧挨左侧 30% 宽度 */
+      left: 25%;                /* 紧挨左侧 30% 宽度 */
       width: 80%;
       height: 100vh;
       overflow-y: scroll;       /* 仅允许右侧滚动 */
-      scroll-snap-type: y mandatory; /* 强制“节”级滚动对齐 */
+      scroll-snap-type: y mandatory; /* 强制"节"级滚动对齐 */
     }
     .video-section {
       scroll-snap-align: start;    /* 每一节滚动到顶部时对齐 */
@@ -255,22 +255,22 @@
   <aside class="sidebar">
   <!-- ① 新增一个 .sidebar-content 容器 -->
   <div class="sidebar-content">
-    <div class="project-title">Assassin’s Creed: Shadow</div>
+    <div class="project-title">Assassin's Creed: Shadow</div>
     <div class="project-role">Cinematic Design & Implementation</div>
         <div class="project-role">2025</div>
 
     <div class="separator-line"></div>
 
     <div class="section-list">
-      <h3> Open World Main Quest: Assassinate the “Nobles”</h3>
+      <h3> · Open World Main Quest: Assassinate the "Nobles"</h3>
       <ul>
         <li class="active"><a href="#sect1">1. Rengakai</a></li>
         <li><a href="#sect2">*2. Repel the Ronin</a></li>
         <li><a href="#sect3">3. Spring and Autumn</a></li>
-        <h3>· Open World Main Quest: Assassinate the “Ox”</h3>
+        <h3>· Open World Main Quest: Assassinate the "Ox"</h3>
         <li><a href="#sect4">4. Raid Plan</a></li>
         <li><a href="#sect5">*5. Broken Horn</a></li>
-        <h3>· Main Story Finale: Yasuke’s Revenge</h3>
+        <h3>· Main Story Finale: Yasuke's Revenge</h3>
         <li><a href="#sect6">6. Meet Silver Queen</a></li>
         <li><a href="#sect7">*7. Caro Reveal</a></li>
         <li><a href="#sect8">8. Yasuke Free</a></li>
@@ -291,13 +291,13 @@
 </video>
 <div class="caption">
 <!-- <p><strong>Cinematic Level:</strong> 3.5 (0-4)</p> --> 
-<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=28&t=579" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
-<p>//The “Nobles” questline is one of the key preview missions for AC: Shadow. Some Rengakai shots were also included in the <a href="https://www.bilibili.com/video/BV1PS4JexEe5/?share_source=copy_web&vd_source=a4a0ee52ccfb0fcbd9589a067c85a9b5&t=81" target="_blank"><u>global trailer</u></a> //</p>
+<p>//For the full mission flow in English, click <a href="https://youtu.be/ZZRnqmdynyU?si=BzbzPwB3jTI3ag6Y&t=1008" target="_blank"><u>here</u></a> to view player-recorded footage on Youtube //</p>
+<p>//The "Nobles" questline is one of the key preview missions for AC: Shadow. Some Rengakai shots were also included in the <a href="https://youtu.be/zKua34QXhMA?si=f2QjH6-pge_j6B-j&t=81" target="_blank"><u>global trailer</u></a> //</p>
 
 <br>
 <p><strong>Prerequisite:</strong> Players are invited by Daimyo <strong>Kuroda Kanbei</strong> to attend a <u>Rengakai</u> (a traditional Japanese poetry assembly) at Himeji Castle.</p>
 <p style="text-indent: 5em;">Hachirō (Hideie) guides the player to their seat, triggering the scene.</p>
-<p><strong>Characters:</strong> Player (selectable Naoe/Yasuke), Ukita Naoie (“Noble”), Kuroda Kanbei, Konishi Yukinaga, Renga Poet, Calligrapher, Other Guests ×3, Ronin ×2, Servants</p>
+<p><strong>Characters:</strong> Player (selectable Naoe/Yasuke), Ukita Naoie ("Noble"), Kuroda Kanbei, Konishi Yukinaga, Renga Poet, Calligrapher, Other Guests ×3, Ronin ×2, Servants</p>
 <p><strong>Performance Narrative:</strong> Guests exchange Renga poems to mask probing and hidden tensions; calm on the surface, turbulent beneath. Daimyo <strong>Ukita Naoie</strong> initiates conversation with the player, testing them repeatedly, and then showcases his ambition through Renga, challenging Kuroda Kanbei, bringing the room to a sudden hush. As the atmosphere tightens, a group of ronin storms into the courtyard, firing indiscriminately into the assembly. Guests scatter, and the player and Ukita Naoie rise to face the attacking ronin together, before the game returns to the main mission flow.</p>
 </div>
 
@@ -310,10 +310,10 @@
   <source src="videos/2_AfterRengakai.mp4" type="video/mp4" />
 </video>
 <div class="caption">
-<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=28&t=827" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+<p>//For the full mission flow in English, click <a href="https://youtu.be/ZZRnqmdynyU?si=9zwHsKwSYZQNOQAx&t=1233" target="_blank"><u>here</u></a> to view player-recorded footage on Youtube //</p>
 <br>
 <p><strong>Prerequisite:</strong> Triggered after the player and <strong>Naoie</strong> jointly repel the attacking ronin.</p>
-<p><strong>Characters:</strong> Naoe, Yasuke, Ukita Naoie (“Noble”), Kuroda Kanbei, Konishi Yukinaga, Castle Commander, Kuroda Retainers ×3, Ukita Retainers ×2</p>
+<p><strong>Characters:</strong> Naoe, Yasuke, Ukita Naoie ("Noble"), Kuroda Kanbei, Konishi Yukinaga, Castle Commander, Kuroda Retainers ×3, Ukita Retainers ×2</p>
 <p><strong>Performance Narrative:</strong> After the battle, the courtyard is in disarray, and Naoe and Yasuke regroup. <strong>Naoie</strong> angrily informs Kanbei that his son Hachirō (Hideie) has been captured by the ronin, demanding full alert and deployment of his troops across Himeji Castle. Once Naoie departs, Naoe, Yasuke, and Kanbei cooperate to organize the clues they currently have: the missing Torbei and the gunpowder.</p>
 </div>
 
@@ -322,17 +322,17 @@
 
     <!-- SECTION 3 -->
     <section id="sect3" class="video-section">
-     <div class="section-title">Spring and Autumn – The Death of the “Noble”</div>
+     <div class="section-title">Spring and Autumn – The Death of the "Noble"</div>
 <video controls preload="metadata">
   <source src="videos/3_UkitaDefeated.mp4" type="video/mp4" />
 </video>
 <div class="caption">
-<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=29&t=2119" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+<p>//For the full mission flow, click <a href="https://youtu.be/ZZRnqmdynyU?si=beH2bpVqL4TEwGEA&t=4572" target="_blank"><u>here</u></a> to view player-recorded footage on Youtube //</p>
 <br>
-<p><strong>Prerequisite:</strong> Triggered when the player infiltrates Himeji Castle’s main keep and defeats <strong>Ukita Naoie</strong> in the boss battle.</p>
-<p><strong>Characters:</strong> Naoe, Yasuke, Ukita Naoie (“Noble”)</p>
-<p><strong>Performance Narrative:</strong> A pivotal moment in the “Spring and Autumn” chapter, marking the end of the “Noble” Ukita Naoie’s fate amidst sudden storms and chaos.</p>
-<p style="text-indent: 5em;">Although Naoie joined the “New Shogunate,” his motive was not solely power, but also to protect his son Hachirō. Players can choose whether to spare him; if spared, they receive his poem for Hachirō. Regardless, Naoie’s death is inevitable.</p>
+<p><strong>Prerequisite:</strong> Triggered when the player infiltrates Himeji Castle's main keep and defeats <strong>Ukita Naoie</strong> in the boss battle.</p>
+<p><strong>Characters:</strong> Naoe, Yasuke, Ukita Naoie ("Noble")</p>
+<p><strong>Performance Narrative:</strong> A pivotal moment in the "Spring and Autumn" chapter, marking the end of the "Noble" Ukita Naoie's fate amidst sudden storms and chaos.</p>
+<p style="text-indent: 5em;">Although Naoie joined the "New Shogunate," his motive was not solely power, but also to protect his son Hachirō. Players can choose whether to spare him; if spared, they receive his poem for Hachirō. Regardless, Naoie's death is inevitable.</p>
 </div>
 
     </section>
@@ -345,11 +345,11 @@
   <source src="videos/4_AttackPlan.mp4" type="video/mp4" />
 </video>
 <div class="caption">
-<p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=27&t=1264" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+<p>//For the full mission flow, click <a href="https://youtu.be/SoWED5ad6_I?si=Vi0tF2SfIzPA3Eip&t=2712" target="_blank"><u>here</u></a> to view player-recorded footage on Youtube //</p>
 <br>
 <p><strong>Prerequisite:</strong> Triggered when the player prepares all necessary arrangements and meets <strong>Nakamura Tadashige</strong> in the downtown area of Miki Castle.</p>
 <p><strong>Characters:</strong> Naoe, Yasuke, Nakamura Tadashige</p>
-<p><strong>Performance Narrative:</strong> The three consolidate the current clues and military resources, jointly devising the assault plan against the “Ox.” Yasuke, alongside ally Koshiro, directly confronts the group to draw fire, while Naoe infiltrates Miki Castle with Nakamura to rescue the captured hostages.</p>
+<p><strong>Performance Narrative:</strong> The three consolidate the current clues and military resources, jointly devising the assault plan against the "Ox." Yasuke, alongside ally Koshiro, directly confronts the group to draw fire, while Naoe infiltrates Miki Castle with Nakamura to rescue the captured hostages.</p>
 </div>
 
     </section>
@@ -357,7 +357,7 @@
 
    <!-- SECTION 5 -->
    <section id="sect5" class="video-section">
-  <div class="section-title">Broken Horn – The Death of the “Ox”</div>
+  <div class="section-title">Broken Horn – The Death of the "Ox"</div>
 
   <video controls preload="metadata" style="width:100%; border-radius:12px;">
     <source src="videos/5_OxDefeated.mp4" type="video/mp4" />
@@ -365,11 +365,11 @@
   </video>
 
   <div class="caption">
-    <p>//For the full mission flow, click <a href="https://www.bilibili.com/video/BV1FdQ9YdEcN/?p=27&t=2171" target="_blank"><u>here</u></a> to view player-recorded footage on Bilibili //</p>
+    <p>//For the full mission flow, click <a href="https://youtu.be/SoWED5ad6_I?si=gakJd6e0XD4t4tuG&t=3748" target="_blank"><u>here</u></a> to view player-recorded footage on Youtube //</p>
     <br>
-    <p><strong>Prerequisite:</strong> After Yasuke kills the “Horn” in battle and discovers it was actually a young monk, the player infiltrates Miki Castle’s main keep and defeats <strong>Bessho Harumasa</strong> in the boss battle to trigger the scene.</p>
-    <p><strong>Characters:</strong> Naoe, Yasuke, Bessho Harumasa (“Ox”)</p>
-    <p><strong>Performance Narrative:</strong> Bessho Harumasa is struck down and kneels; Naoe and Yasuke regroup. Naoe questions Bessho about the box taken by the “New Shogunate,” but Bessho claims ignorance. Frustrated, Naoe hears Bessho mock their naive and hypocritical sense of justice. Yasuke ends Bessho’s life in the way of a samurai, yet remains tormented by guilt and doubt over killing the “Horn.” Naoe comforts Yasuke. The game then returns to the main flow.</p>
+    <p><strong>Prerequisite:</strong> After Yasuke kills the "Horn" in battle and discovers it was actually a young monk, the player infiltrates Miki Castle's main keep and defeats <strong>Bessho Harumasa</strong> in the boss battle to trigger the scene.</p>
+    <p><strong>Characters:</strong> Naoe, Yasuke, Bessho Harumasa ("Ox")</p>
+    <p><strong>Performance Narrative:</strong> Bessho Harumasa is struck down and kneels; Naoe and Yasuke regroup. Naoe questions Bessho about the box taken by the "New Shogunate," but Bessho claims ignorance. Frustrated, Naoe hears Bessho mock their naive and hypocritical sense of justice. Yasuke ends Bessho's life in the way of a samurai, yet remains tormented by guilt and doubt over killing the "Horn." Naoe comforts Yasuke. The game then returns to the main flow.</p>
   </div>
 </section>
 
@@ -377,20 +377,13 @@
     <!-- SECTION 6 -->
     <section id="sect6" class="video-section">
      <div class="section-title">Meet Silver Queen – Transitional Dialogue</div>
-<iframe 
-  src="https://player.bilibili.com/player.html?bvid=BV1eJQBYNE5s&p=42&t=539" 
-  scrolling="no" 
-  frameborder="no" 
-  framespacing="0" 
-  allowfullscreen="true" 
-  style="width:100%; height:600px; border-radius:12px;">
-</iframe>
+<iframe width="1080" height="720" src="https://www.youtube.com/embed/cnBsG4V2wIo?si=jla214bgxa1nT85U&amp;start=114" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <div class="caption">
-<p>//This is Yasuke’s final mission. I haven’t reached this part myself yet, so I’m temporarily using a player-recorded <a href="https://www.bilibili.com/video/BV1eJQBYNE5s/?p=42&t=539" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
+<p>//This is Yasuke's final mission. I haven't reached this part myself yet, so I'm temporarily using a player-recorded <a href="https://www.youtube.com/watch?v=cnBsG4V2wIo" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
 <br>
-<p><strong>Prerequisite:</strong> Yasuke learns that Tanba’s <strong>“Silver Queen”</strong> has clues regarding his nemesis <strong>Caro</strong>. Travel to Tanba Castle town and speak with her to trigger the scene.</p>
-<p><strong>Characters:</strong> Yasuke, Hosokawa Tama (“Silver Queen”)</p>
+<p><strong>Prerequisite:</strong> Yasuke learns that Tanba's <strong>"Silver Queen"</strong> has clues regarding his nemesis <strong>Caro</strong>. Travel to Tanba Castle town and speak with her to trigger the scene.</p>
+<p><strong>Characters:</strong> Yasuke, Hosokawa Tama ("Silver Queen")</p>
 <p><strong>Performance Narrative:</strong> Yasuke wishes to question the Silver Queen, but she indicates that it is unsafe here and suggests moving to another location to talk.</p>
 </div>
 
@@ -399,21 +392,15 @@
     <!-- SECTION 7 -->
     <section id="sect7" class="video-section">
      <div class="section-title">Caro Reveal</div>
-<iframe 
-  src="https://player.bilibili.com/player.html?bvid=BV1eJQBYNE5s&p=42&t=657" 
-  scrolling="no" 
-  frameborder="no" 
-  framespacing="0" 
-  allowfullscreen="true" 
-  style="width:100%; height:600px; border-radius:12px;">
-</iframe>
+<iframe width="1080" height="720" src="https://www.youtube.com/embed/cnBsG4V2wIo?si=fD3hmyrSc5lGKvzV&amp;start=252" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <div class="caption">
-<p>//This is Yasuke’s final mission. I haven’t reached this part myself yet, so I’m temporarily using a player-recorded <a href="https://www.bilibili.com/video/BV1eJQBYNE5s/?p=42&t=657" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
-<p>//Caro’s appearance footage was edited into the Assassin’s Creed: Shadow <a href="https://www.bilibili.com/video/BV1FQfhY1Ezk/?share_source=copy_web&vd_source=a4a0ee52ccfb0fcbd9589a067c85a9b5&t=110" target="_blank"><u>global story trailer</u></a> //</p>
+<p>//This is Yasuke's final mission. I haven't reached this part myself yet, so I'm temporarily using a online-recorded <a href="https://youtu.be/cnBsG4V2wIo?si=fD3hmyrSc5lGKvzV&t=252" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
+<p>//Caro's appearance footage was edited into the Assassin's Creed: Shadow <a href="https://www.bilibili.com/video/BV1FQfhY1Ezk/?share_source=copy_web&vd_source=a4a0ee52ccfb0fcbd9589a067c85a9b5&t=110" target="_blank"><u>global story trailer</u></a> //</p>
 <br>
-<p><strong>Prerequisite:</strong> To obtain clues about his enemesis Caro, Yasuke meets the “Silver Queen” and follows her indoors to trigger the scene.</p>
-<p><strong>Characters:</strong> Yasuke, Hosokawa Tama (“Silver Queen”), Nuno Caro</p>
-<p><strong>Performance Narrative:</strong> The “Silver Queen” serves matcha to Yasuke. As he drinks, he asks about Caro. The “Silver Queen” reveals her true identity as Hosokawa Tama (daughter of the traitorous Oda retainer Akechi Mitsuhide) and tests Yasuke’s abilities and his hatred toward Caro. Yasuke tries to ask more, but discovers the tea is drugged. Dazed, Nuno Caro suddenly appears; Tama is revealed to be aligned with him. Caro does not recognize Yasuke and mocks him, while Tama declares she will personally kill Yasuke to avenge her father. Caro leaves Yasuke in Tama’s hands. Yasuke loses consciousness…</p>
+<p><strong>Prerequisite:</strong> To obtain clues about his enemesis Caro, Yasuke meets the "Silver Queen" and follows her indoors to trigger the scene.</p>
+<p><strong>Characters:</strong> Yasuke, Hosokawa Tama ("Silver Queen"), Nuno Caro</p>
+<p><strong>Performance Narrative:</strong> The "Silver Queen" serves matcha to Yasuke. As he drinks, he asks about Caro. The "Silver Queen" reveals her true identity as Hosokawa Tama (daughter of the traitorous Oda retainer Akechi Mitsuhide) and tests Yasuke's abilities and his hatred toward Caro. Yasuke tries to ask more, but discovers the tea is drugged. Dazed, Nuno Caro suddenly appears; Tama is revealed to be aligned with him. Caro does not recognize Yasuke and mocks him, while Tama declares she will personally kill Yasuke to avenge her father. Caro leaves Yasuke in Tama's hands. Yasuke loses consciousness…</p>
 </div>
 
     </section>
@@ -421,20 +408,14 @@
     <!-- SECTION 8 -->
     <section id="sect8" class="video-section">
     <div class="section-title">Yasuke Free</div>
-<iframe 
-  src="https://player.bilibili.com/player.html?bvid=BV1eJQBYNE5s&p=42&t=923" 
-  scrolling="no" 
-  frameborder="no" 
-  framespacing="0" 
-  allowfullscreen="true" 
-  style="width:100%; height:600px; border-radius:12px;">
-</iframe>
+<iframe width="1080" height="720" src="https://www.youtube.com/embed/cnBsG4V2wIo?si=3qdpG7L7V5wIezjg&amp;start=533" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <div class="caption">
-<p>//This is Yasuke’s final mission. I haven’t reached this part myself yet, so I’m temporarily using a player-recorded <a href="https://www.bilibili.com/video/BV1eJQBYNE5s/?p=42&t=923" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
+<p>//This is Yasuke's final mission. I haven't reached this part myself yet, so I'm temporarily using a player-recorded <a href="https://youtu.be/cnBsG4V2wIo?si=LzS2dd94ojSYX-oU&t=533" target="_blank"><u>video</u></a> /(ㄒoㄒ)/~~ //</p>
 <br>
 <p><strong>Prerequisite:</strong> Immediately following the previous scene, <strong>Caro</strong> hands Yasuke over to <strong>Hosokawa Tama</strong>, and Yasuke loses consciousness.</p>
 <p><strong>Characters:</strong> Yasuke, Hosokawa Tama</p>
-<p><strong>Performance Narrative:</strong> Yasuke awakens in a warehouse, only to be held at gunpoint by Tama. The two confront each other—Yasuke is furious at Tama’s deception, while she explains that after Honnoji, she and her brother were under Caro’s control. To escape Caro’s influence, she demands that Yasuke rescue her brother, promising to spare him if he complies. They reach an agreement, Tama lets Yasuke go, and the game returns to its main flow.</p>
+<p><strong>Performance Narrative:</strong> Yasuke awakens in a warehouse, only to be held at gunpoint by Tama. The two confront each other—Yasuke is furious at Tama's deception, while she explains that after Honnoji, she and her brother were under Caro's control. To escape Caro's influence, she demands that Yasuke rescue her brother, promising to spare him if he complies. They reach an agreement, Tama lets Yasuke go, and the game returns to its main flow.</p>
 </div>
 
     </section>
@@ -446,14 +427,14 @@
   <source src="videos/9_loveScene.mp4" type="video/mp4" />
 </video>
 <div class="caption">
-<p>//For the full mission walkthrough, click <a href="https://www.bilibili.com/video/BV1Ud5tzUEUB/?share_source=copy_web&vd_source=a4a0ee52ccfb0fcbd9589a067c85a9b5&t=1431" target="_blank"><u>here</u></a> to view the player-recorded video on Bilibili //</p>
+<p>//For the full mission walkthrough, click <a href="https://youtu.be/ZgG625zqEHI?si=RqQyAbvSFy4jIa7C&t=1142" target="_blank"><u>here</u></a> to view the player-recorded video on Youtube //</p>
 <br>
-<p><strong>Prerequisite:</strong> Koshiro, unable to continue fighting, wants to say goodbye. Naoe encourages him by helping him retrieve the box from his past woodworking. They walk and talk along Lovers’ Lake, reaching the lake’s central island, where their feelings deepen. Koshiro sits under a cherry tree, and the scene triggers when the player sits as well.</p>
+<p><strong>Prerequisite:</strong> Koshiro, unable to continue fighting, wants to say goodbye. Naoe encourages him by helping him retrieve the box from his past woodworking. They walk and talk along Lovers' Lake, reaching the lake's central island, where their feelings deepen. Koshiro sits under a cherry tree, and the scene triggers when the player sits as well.</p>
 <p><strong>Characters:</strong> Naoe, Koshiro</p>
 <p><strong>Performance Narrative:</strong> A relatively subtle Eastern-style confession scene. Koshiro still wants to leave, and Naoe tries to stop him. Depending on the affection level and player choices, three branches are possible: Love / Friendship / Rejection:</p>
-<p style="text-indent: 5em;">- Love Branch: Affection meets the condition and the player selects “For example, me.” Koshiro gives Naoe a hairpin, Naoe steals a kiss, and they confirm their feelings, sealing their bond with a lakeside kiss.</p>
-<p style="text-indent: 5em;">- Friendship Branch: Affection meets the condition and the player selects “It’s up to you.” Koshiro gives Naoe a small wooden sword, and they agree to be allies.</p>
-<p style="text-indent: 5em;">- Rejection Branch: Affection does not meet the condition and the player selects “For example, me.” Koshiro is shocked, Naoe responds awkwardly. Koshiro gives Naoe a small wooden sword, and they agree to be allies.</p>
+<p style="text-indent: 5em;">- Love Branch: Affection meets the condition and the player selects "For example, me." Koshiro gives Naoe a hairpin, Naoe steals a kiss, and they confirm their feelings, sealing their bond with a lakeside kiss.</p>
+<p style="text-indent: 5em;">- Friendship Branch: Affection meets the condition and the player selects "It's up to you." Koshiro gives Naoe a small wooden sword, and they agree to be allies.</p>
+<p style="text-indent: 5em;">- Rejection Branch: Affection does not meet the condition and the player selects "For example, me." Koshiro is shocked, Naoe responds awkwardly. Koshiro gives Naoe a small wooden sword, and they agree to be allies.</p>
 </div>
 
   </div>
@@ -481,7 +462,7 @@
         });
       }, {
         root: document.querySelector('.content-wrapper'),
-        threshold: 0.6  // 当 60% 可视时视为“在视口中”
+        threshold: 0.6  // 当 60% 可视时视为"在视口中"
       });
 
       sections.forEach(sec => observer.observe(sec));
